@@ -24,10 +24,17 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   internal class BindingHelper
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Methods
 
     public static void RebindInactiveBindings( DependencyObject dependencyObject )
     {
+      Logger.InfoFormat("_");
+
       foreach( PropertyDescriptor property in TypeDescriptor.GetProperties( dependencyObject.GetType() ) )
       {
         var dpd = DependencyPropertyDescriptor.FromProperty( property );

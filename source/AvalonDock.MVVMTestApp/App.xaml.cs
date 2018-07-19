@@ -14,6 +14,8 @@
 
   **********************************************************************/
 
+using log4net;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -28,5 +30,12 @@ namespace AvalonDock.MVVMTestApp
     /// </summary>
     public partial class App : Application
     {
+        protected static ILog Logger; // Enable debugging via Log4Net
+
+        static App()
+        {
+            XmlConfigurator.Configure();   // Read Log4Net config from App.config file
+            Logger = LogManager.GetLogger("default");
+        }
     }
 }

@@ -24,6 +24,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class AnchorablePaneDropTarget : DropTarget<LayoutAnchorablePaneControl>
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorablePaneControl _targetPane;
     int _tabIndex = -1;
@@ -51,6 +55,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Drop( LayoutAnchorableFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       ILayoutAnchorablePane targetModel = _targetPane.Model as ILayoutAnchorablePane;
       LayoutAnchorable anchorableActive = floatingWindow.Descendents().OfType<LayoutAnchorable>().FirstOrDefault();
 
@@ -260,6 +266,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override System.Windows.Media.Geometry GetPreviewPath( OverlayWindow overlayWindow, LayoutFloatingWindow floatingWindowModel )
     {
+      Logger.InfoFormat("_");
+
       //var anchorablePaneDropTarget = target as AnchorablePaneDropTarget;
       var anchorableFloatingWindowModel = floatingWindowModel as LayoutAnchorableFloatingWindow;
       var layoutAnchorablePane = anchorableFloatingWindowModel.RootPanel as ILayoutPositionableElement;

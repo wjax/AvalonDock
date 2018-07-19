@@ -24,6 +24,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class LayoutDocumentControl : Control
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     static LayoutDocumentControl()
@@ -73,6 +78,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnModelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
       {
         ( ( LayoutContent )e.OldValue ).PropertyChanged -= Model_PropertyChanged;
@@ -91,6 +98,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private void Model_PropertyChanged( object sender, PropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.PropertyName == "IsEnabled" )
       {
         if( Model != null )
@@ -138,6 +147,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetLayoutItem( LayoutItem value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( LayoutItemPropertyKey, value );
     }
 
@@ -149,18 +160,24 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnPreviewGotKeyboardFocus( KeyboardFocusChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       this.SetIsActive();
       base.OnPreviewGotKeyboardFocus( e );
     }
 
     protected override void OnMouseLeftButtonDown( MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       this.SetIsActive();
       base.OnMouseLeftButtonDown( e );
     }
 
     protected override void OnMouseRightButtonDown( MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       this.SetIsActive();
       base.OnMouseLeftButtonDown( e );
     }

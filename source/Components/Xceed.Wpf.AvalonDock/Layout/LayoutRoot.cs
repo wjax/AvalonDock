@@ -33,7 +33,12 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutRoot : LayoutElement, ILayoutContainer, ILayoutRoot, IXmlSerializable
   {
-    #region Constructors
+      /// <summary>
+      /// Log4net logger facility for this class.
+      /// </summary>
+      protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+    
+      #region Constructors
 
     public LayoutRoot()
     {
@@ -378,6 +383,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void RemoveChild( ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       if( element == RootPanel )
         RootPanel = null;
       else if( _floatingWindows != null && _floatingWindows.Contains( element ) )
@@ -397,6 +404,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ReplaceChild( ILayoutElement oldElement, ILayoutElement newElement )
     {
+      Logger.InfoFormat("_");
+
       if( oldElement == RootPanel )
         RootPanel = ( LayoutPanel )newElement;
       else if( _floatingWindows != null && _floatingWindows.Contains( oldElement ) )
@@ -426,6 +435,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// </summary>
     public void CollectGarbage()
     {
+      Logger.InfoFormat("_");
+
       bool exitFlag = true;
 
       #region collect empty panes
@@ -619,6 +630,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ReadXml( XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       reader.MoveToContent();
       if( reader.IsEmptyElement )
       {
@@ -676,6 +689,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void WriteXml( XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       writer.WriteStartElement( "RootPanel" );
       if( this.RootPanel != null )
       {
@@ -738,6 +753,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal static Type FindType( string name )
     {
+      Logger.InfoFormat("_");
+
       foreach( var assembly in AppDomain.CurrentDomain.GetAssemblies() )
       {
         foreach( var type in assembly.GetTypes() )
@@ -751,18 +768,24 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void FireLayoutUpdated()
     {
+      Logger.InfoFormat("_");
+
       if( Updated != null )
         Updated( this, EventArgs.Empty );
     }
 
     internal void OnLayoutElementAdded( LayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       if( ElementAdded != null )
         ElementAdded( this, new LayoutElementEventArgs( element ) );
     }
 
     internal void OnLayoutElementRemoved( LayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       if( element.Descendents().OfType<LayoutContent>().Any( c => c == LastFocusedDocument ) )
         LastFocusedDocument = null;
       if( element.Descendents().OfType<LayoutContent>().Any( c => c == ActiveContent ) )

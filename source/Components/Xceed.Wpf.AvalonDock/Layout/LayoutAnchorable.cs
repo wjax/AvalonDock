@@ -28,6 +28,10 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public class LayoutAnchorable : LayoutContent
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private double _autohideWidth = 0.0;
     private double _autohideMinWidth = 100.0;
@@ -246,6 +250,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnParentChanged( ILayoutContainer oldValue, ILayoutContainer newValue )
     {
+      Logger.InfoFormat("_");
+
       UpdateParentVisibility();
       RaisePropertyChanged( "IsVisible" );
       NotifyIsVisibleChanged();
@@ -256,6 +262,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void InternalDock()
     {
+      Logger.InfoFormat("_");
+
       var root = Root as LayoutRoot;
       LayoutAnchorablePane anchorablePane = null;
 
@@ -314,6 +322,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "CanHide" ) )
         CanHide = bool.Parse( reader.Value );
       if( reader.MoveToAttribute( "CanAutoHide" ) )
@@ -332,6 +342,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       if( !CanHide )
         writer.WriteAttributeString( "CanHide", CanHide.ToString() );
       if( !CanAutoHide )
@@ -351,6 +363,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void Close()
     {
+      Logger.InfoFormat("_");
+
       this.CloseAnchorable();
     }
 
@@ -372,6 +386,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// <remarks>Add this content to <see cref="ILayoutRoot.Hidden"/> collection of parent root.</remarks>
     public void Hide( bool cancelable = true )
     {
+      Logger.InfoFormat("_");
+
       if( !IsVisible )
       {
         IsSelected = true;
@@ -408,6 +424,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// <remarks>Try to show the content where it was previously hidden.</remarks>
     public void Show()
     {
+      Logger.InfoFormat("_");
+
       if( IsVisible )
         return;
 
@@ -460,6 +478,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// <param name="strategy"></param>
     public void AddToLayout( DockingManager manager, AnchorableShowStrategy strategy )
     {
+      Logger.InfoFormat("_");
+
       if( IsVisible ||
           IsHidden )
         throw new InvalidOperationException();
@@ -532,6 +552,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ToggleAutoHide()
     {
+      Logger.InfoFormat("_");
+
       #region Anchorable is already auto hidden
       if( IsAutoHidden )
       {
@@ -701,12 +723,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void OnHiding( CancelEventArgs args )
     {
+      Logger.InfoFormat("_");
+
       if( Hiding != null )
         Hiding( this, args );
     }
 
     internal void CloseAnchorable()
     {
+      Logger.InfoFormat("_");
+
       if( this.TestCanClose() )
       {
         if( this.IsAutoHidden )
@@ -718,12 +744,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void SetCanCloseInternal( bool canClose )
     {
+      Logger.InfoFormat("_");
+
       _canCloseValueBeforeInternalSet = _canClose;
       _canClose = canClose;
     }
 
     internal void ResetCanCloseInternal()
     {
+      Logger.InfoFormat("_");
+
       _canClose = _canCloseValueBeforeInternalSet;
     }
 

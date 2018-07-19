@@ -27,6 +27,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutDocumentFloatingWindow : LayoutFloatingWindow
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public LayoutDocumentFloatingWindow()
@@ -81,12 +86,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void RemoveChild( ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       Debug.Assert( element == RootDocument && element != null );
       RootDocument = null;
     }
 
     public override void ReplaceChild( ILayoutElement oldElement, ILayoutElement newElement )
     {
+      Logger.InfoFormat("_");
+
       Debug.Assert( oldElement == RootDocument && oldElement != null );
       RootDocument = newElement as LayoutDocument;
     }
@@ -109,6 +118,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       reader.MoveToContent();
       if( reader.IsEmptyElement )
       {

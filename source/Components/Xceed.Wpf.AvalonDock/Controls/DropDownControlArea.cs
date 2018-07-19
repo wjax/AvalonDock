@@ -22,6 +22,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class DropDownControlArea : UserControl
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     //static DropDownControlArea()
@@ -95,11 +100,15 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseRightButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseRightButtonDown( e );
     }
 
     protected override void OnPreviewMouseRightButtonUp( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnPreviewMouseRightButtonUp( e );
 
       if( !e.Handled )

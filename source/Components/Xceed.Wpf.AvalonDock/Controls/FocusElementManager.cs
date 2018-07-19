@@ -30,6 +30,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal static class FocusElementManager
   {
     #region Member
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private static List<DockingManager> _managers = new List<DockingManager>();
     private static FullWeakDictionary<ILayoutElement, IInputElement> _modelFocusedElement = new FullWeakDictionary<ILayoutElement, IInputElement>();
@@ -45,6 +49,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal static void SetupFocusManagement( DockingManager manager )
     {
+      Logger.InfoFormat("_");
+
       if( _managers.Count == 0 )
       {
         //InputManager.Current.EnterMenuMode += new EventHandler(InputManager_EnterMenuMode);
@@ -64,6 +70,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal static void FinalizeFocusManagement( DockingManager manager )
     {
+      Logger.InfoFormat("_");
+
       manager.PreviewGotKeyboardFocus -= new KeyboardFocusChangedEventHandler( manager_PreviewGotKeyboardFocus );
       _managers.Remove( manager );
 
@@ -89,6 +97,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <returns>Input element </returns>
     internal static IInputElement GetLastFocusedElement( ILayoutElement model )
     {
+      Logger.InfoFormat("_");
+
       IInputElement objectWithFocus;
       if( _modelFocusedElement.GetValue( model, out objectWithFocus ) )
         return objectWithFocus;
@@ -104,6 +114,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <returns></returns>
     internal static IntPtr GetLastWindowHandle( ILayoutElement model )
     {
+      Logger.InfoFormat("_");
+
       IntPtr handleWithFocus;
       if( _modelFocusedWindowHandle.GetValue( model, out handleWithFocus ) )
         return handleWithFocus;
@@ -117,6 +129,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="model"></param>
     internal static void SetFocusOnLastElement( ILayoutElement model )
     {
+      Logger.InfoFormat("_");
+
       bool focused = false;
       IInputElement objectToFocus;
       if( _modelFocusedElement.GetValue( model, out objectToFocus ) )

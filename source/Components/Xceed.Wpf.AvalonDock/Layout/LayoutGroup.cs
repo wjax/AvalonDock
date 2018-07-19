@@ -26,6 +26,10 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public abstract class LayoutGroup<T> : LayoutGroupBase, ILayoutContainer, ILayoutGroup, IXmlSerializable where T : class, ILayoutElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     ObservableCollection<T> _children = new ObservableCollection<T>();
 
@@ -95,6 +99,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnParentChanged( ILayoutContainer oldValue, ILayoutContainer newValue )
     {
+      Logger.InfoFormat("_");
+
       base.OnParentChanged( oldValue, newValue );
 
       ComputeVisibility();
@@ -106,11 +112,15 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ComputeVisibility()
     {
+      Logger.InfoFormat("_");
+
       IsVisible = GetVisibility();
     }
 
     public void MoveChild( int oldIndex, int newIndex )
     {
+      Logger.InfoFormat("_");
+
       if( oldIndex == newIndex )
         return;
       _children.Move( oldIndex, newIndex );
@@ -119,26 +129,36 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void RemoveChildAt( int childIndex )
     {
+      Logger.InfoFormat("_");
+
       _children.RemoveAt( childIndex );
     }
 
     public int IndexOfChild( ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       return _children.Cast<ILayoutElement>().ToList().IndexOf( element );
     }
 
     public void InsertChildAt( int index, ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       _children.Insert( index, ( T )element );
     }
 
     public void RemoveChild( ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       _children.Remove( ( T )element );
     }
 
     public void ReplaceChild( ILayoutElement oldElement, ILayoutElement newElement )
     {
+      Logger.InfoFormat("_");
+
       int index = _children.IndexOf( ( T )oldElement );
       _children.Insert( index, ( T )newElement );
       _children.RemoveAt( index + 1 );
@@ -146,17 +166,23 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ReplaceChildAt( int index, ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       _children[ index ] = ( T )element;
     }
 
 
     public System.Xml.Schema.XmlSchema GetSchema()
     {
+      Logger.InfoFormat("_");
+
       return null;
     }
 
     public virtual void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       reader.MoveToContent();
       if( reader.IsEmptyElement )
       {
@@ -227,6 +253,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void OnIsVisibleChanged()
     {
+      Logger.InfoFormat("_");
+
       UpdateParentVisibility();
     }
 
@@ -242,6 +270,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     private void _children_CollectionChanged( object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove ||
           e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace )
       {
@@ -288,6 +318,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     private Type FindType( string name )
     {
+      Logger.InfoFormat("_");
+
       foreach( var a in AppDomain.CurrentDomain.GetAssemblies() )
       {
         foreach( var t in a.GetTypes() )

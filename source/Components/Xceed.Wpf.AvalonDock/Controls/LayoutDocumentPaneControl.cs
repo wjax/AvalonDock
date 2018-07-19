@@ -26,6 +26,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutDocumentPaneControl : TabControl, ILayoutControl//, ILogicalChildrenContainer
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private List<object> _logicalChildren = new List<object>();
     private LayoutDocumentPane _model;
@@ -77,6 +81,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnSelectionChanged( SelectionChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnSelectionChanged( e );
 
       if( _model.SelectedContent != null )
@@ -85,6 +91,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeftButtonDown( e );
 
       if( !e.Handled && _model.SelectedContent != null )
@@ -93,6 +101,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseRightButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseRightButtonDown( e );
 
       if( !e.Handled && _model.SelectedContent != null )

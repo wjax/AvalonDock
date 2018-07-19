@@ -20,6 +20,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   abstract class DropTargetBase : DependencyObject
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Properties
 
     #region IsDraggingOver
@@ -45,6 +50,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     public static void SetIsDraggingOver( DependencyObject d, bool value )
     {
+      Logger.InfoFormat("_");
+
       d.SetValue( IsDraggingOverProperty, value );
     }
 

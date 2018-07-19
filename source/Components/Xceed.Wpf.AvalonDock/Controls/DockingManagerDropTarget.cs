@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class DockingManagerDropTarget : DropTarget<DockingManager>
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private DockingManager _manager;
 
@@ -44,6 +48,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Drop( LayoutAnchorableFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       switch( Type )
       {
         case DropTargetType.DockingManagerDockLeft:
@@ -196,6 +202,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override System.Windows.Media.Geometry GetPreviewPath( OverlayWindow overlayWindow, LayoutFloatingWindow floatingWindowModel )
     {
+      Logger.InfoFormat("_");
+
       var anchorableFloatingWindowModel = floatingWindowModel as LayoutAnchorableFloatingWindow;
       var layoutAnchorablePane = anchorableFloatingWindowModel.RootPanel as ILayoutPositionableElement;
       var layoutAnchorablePaneWithActualSize = anchorableFloatingWindowModel.RootPanel as ILayoutPositionableElementWithActualSize;

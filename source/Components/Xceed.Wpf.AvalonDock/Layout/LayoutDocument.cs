@@ -23,6 +23,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutDocument : LayoutContent
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Properties
 
     #region IsVisible
@@ -70,6 +75,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       base.WriteXml( writer );
 
       if( !string.IsNullOrWhiteSpace( this.Description ) )
@@ -78,6 +85,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Description" ) )
         this.Description = reader.Value;
 
@@ -86,6 +95,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void Close()
     {
+      Logger.InfoFormat("_");
+
       if( ( this.Root != null ) && ( this.Root.Manager != null ) )
       {
         var dockingManager = this.Root.Manager;
@@ -107,6 +118,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void InternalDock()
     {
+      Logger.InfoFormat("_");
+
       var root = Root as LayoutRoot;
       LayoutDocumentPane documentPane = null;
       if( root.LastFocusedDocument != null &&
@@ -151,6 +164,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal bool CloseDocument()
     {
+      Logger.InfoFormat("_");
+
       if( this.TestCanClose() )
       {
         this.CloseInternal();

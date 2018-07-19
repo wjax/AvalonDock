@@ -21,6 +21,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class ReentrantFlag
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private bool _flag = false;
 
@@ -42,6 +46,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public _ReentrantFlagHandler Enter()
     {
+      Logger.InfoFormat("_");
+
       if( _flag )
         throw new InvalidOperationException();
       return new _ReentrantFlagHandler( this );
@@ -56,12 +62,16 @@ namespace Xceed.Wpf.AvalonDock.Controls
       private ReentrantFlag _owner;
       public _ReentrantFlagHandler( ReentrantFlag owner )
       {
+        Logger.InfoFormat("_");
+
         _owner = owner;
         _owner._flag = true;
       }
 
       public void Dispose()
       {
+        Logger.InfoFormat("_");
+
         _owner._flag = false;
       }
     }

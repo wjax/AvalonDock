@@ -21,6 +21,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public abstract class OverlayArea : IOverlayWindowArea
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private IOverlayWindow _overlayWindow;
     private Rect? _screenDetectionArea;
@@ -40,6 +44,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected void SetScreenDetectionArea( Rect rect )
     {
+      Logger.InfoFormat("_");
+
       _screenDetectionArea = rect;
     }
 

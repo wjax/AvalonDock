@@ -24,6 +24,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutDocumentPaneGroup : LayoutPositionableGroup<ILayoutDocumentPane>, ILayoutDocumentPane, ILayoutOrientableGroup
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public LayoutDocumentPaneGroup()
@@ -67,17 +72,23 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
+      Logger.InfoFormat("_");
+
       return true;
     }
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       writer.WriteAttributeString( "Orientation", Orientation.ToString() );
       base.WriteXml( writer );
     }
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Orientation" ) )
         Orientation = ( Orientation )Enum.Parse( typeof( Orientation ), reader.Value, true );
       base.ReadXml( reader );

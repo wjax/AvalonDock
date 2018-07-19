@@ -25,6 +25,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutDocumentPane : LayoutPositionableGroup<LayoutContent>, ILayoutDocumentPane, ILayoutPositionableElement, ILayoutContentSelector, ILayoutPaneSerializable
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public LayoutDocumentPane()
@@ -129,6 +134,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
+      Logger.InfoFormat("_");
+
       if( this.Parent is LayoutDocumentPaneGroup )
         return ( this.ChildrenCount > 0 ) && this.Children.Any( c => ( c is LayoutDocument && ( ( LayoutDocument )c ).IsVisible ) || ( c is LayoutAnchorable ) );
 
@@ -137,6 +144,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void ChildMoved( int oldIndex, int newIndex )
     {
+      Logger.InfoFormat("_");
+
       if( _selectedIndex == oldIndex )
       {
         RaisePropertyChanging( "SelectedContentIndex" );
@@ -150,6 +159,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnChildrenCollectionChanged()
     {
+      Logger.InfoFormat("_");
+
       if( this.SelectedContentIndex >= this.ChildrenCount )
         this.SelectedContentIndex = this.Children.Count - 1;
       if( this.SelectedContentIndex == -1 && this.ChildrenCount > 0 )
@@ -173,12 +184,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnIsVisibleChanged()
     {
+      Logger.InfoFormat("_");
+
       this.UpdateParentVisibility();
       base.OnIsVisibleChanged();
     }
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       if( _id != null )
         writer.WriteAttributeString( "Id", _id );
       if( !_showHeader )
@@ -189,6 +204,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Id" ) )
         _id = reader.Value;
       if( reader.MoveToAttribute( "ShowHeader" ) )
@@ -216,6 +233,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public int IndexOf( LayoutContent content )
     {
+      Logger.InfoFormat("_");
+
       return Children.IndexOf( content );
     }
 
@@ -225,6 +244,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void SetNextSelectedIndex()
     {
+      Logger.InfoFormat("_");
+
       this.SelectedContentIndex = -1;
       for( int i = 0; i < this.Children.Count; ++i )
       {

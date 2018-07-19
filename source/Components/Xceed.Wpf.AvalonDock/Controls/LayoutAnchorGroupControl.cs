@@ -25,7 +25,6 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorGroupControl : Control, ILayoutControl
   {
     #region Members
-
     private ObservableCollection<LayoutAnchorControl> _childViews = new ObservableCollection<LayoutAnchorControl>();
     private LayoutAnchorGroup _model;
 

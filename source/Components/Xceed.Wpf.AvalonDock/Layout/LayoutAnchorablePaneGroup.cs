@@ -25,6 +25,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public class LayoutAnchorablePaneGroup : LayoutPositionableGroup<ILayoutAnchorablePane>, ILayoutAnchorablePane, ILayoutOrientableGroup
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public LayoutAnchorablePaneGroup()
@@ -68,17 +73,23 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
+      Logger.InfoFormat("_");
+
       return Children.Count > 0 && Children.Any( c => c.IsVisible );
     }
 
     protected override void OnIsVisibleChanged()
     {
+      Logger.InfoFormat("_");
+
       UpdateParentVisibility();
       base.OnIsVisibleChanged();
     }
 
     protected override void OnDockWidthChanged()
     {
+      Logger.InfoFormat("_");
+
       if( DockWidth.IsAbsolute && ChildrenCount == 1 )
         ( ( ILayoutPositionableElement )Children[ 0 ] ).DockWidth = DockWidth;
 
@@ -87,6 +98,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnDockHeightChanged()
     {
+      Logger.InfoFormat("_");
+
       if( DockHeight.IsAbsolute && ChildrenCount == 1 )
         ( ( ILayoutPositionableElement )Children[ 0 ] ).DockHeight = DockHeight;
       base.OnDockHeightChanged();
@@ -94,6 +107,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnChildrenCollectionChanged()
     {
+      Logger.InfoFormat("_");
+
       if( DockWidth.IsAbsolute && ChildrenCount == 1 )
         ( ( ILayoutPositionableElement )Children[ 0 ] ).DockWidth = DockWidth;
       if( DockHeight.IsAbsolute && ChildrenCount == 1 )
@@ -103,12 +118,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       writer.WriteAttributeString( "Orientation", Orientation.ToString() );
       base.WriteXml( writer );
     }
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Orientation" ) )
         Orientation = ( Orientation )Enum.Parse( typeof( Orientation ), reader.Value, true );
       base.ReadXml( reader );
@@ -131,6 +150,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     private void UpdateParentVisibility()
     {
+      Logger.InfoFormat("_");
+
       var parentPane = Parent as ILayoutElementWithVisibility;
       if( parentPane != null )
         parentPane.ComputeVisibility();

@@ -26,6 +26,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorSideControl : Control, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorSide _model = null;
     private ObservableCollection<LayoutAnchorGroupControl> _childViews = new ObservableCollection<LayoutAnchorGroupControl>();
@@ -42,6 +46,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal LayoutAnchorSideControl( LayoutAnchorSide model )
     {
+      Logger.InfoFormat("_");
+
       if( model == null )
         throw new ArgumentNullException( "model" );
 
@@ -112,6 +118,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetIsLeftSide( bool value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( IsLeftSidePropertyKey, value );
     }
 
@@ -146,6 +154,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetIsTopSide( bool value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( IsTopSidePropertyKey, value );
     }
 
@@ -180,6 +190,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetIsRightSide( bool value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( IsRightSidePropertyKey, value );
     }
 
@@ -214,6 +226,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetIsBottomSide( bool value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( IsBottomSidePropertyKey, value );
     }
 

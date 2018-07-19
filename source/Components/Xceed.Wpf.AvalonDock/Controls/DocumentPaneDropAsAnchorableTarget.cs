@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class DocumentPaneDropAsAnchorableTarget : DropTarget<LayoutDocumentPaneControl>
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutDocumentPaneControl _targetPane;
     int _tabIndex = -1;
@@ -52,6 +56,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Drop( LayoutAnchorableFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       ILayoutDocumentPane targetModel = _targetPane.Model as ILayoutDocumentPane;
       LayoutDocumentPaneGroup parentGroup;
       LayoutPanel parentGroupPanel;
@@ -181,6 +187,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override System.Windows.Media.Geometry GetPreviewPath( OverlayWindow overlayWindow, LayoutFloatingWindow floatingWindowModel )
     {
+      Logger.InfoFormat("_");
+
       Rect targetScreenRect;
       ILayoutDocumentPane targetModel = _targetPane.Model as ILayoutDocumentPane;
       var manager = targetModel.Root.Manager;
@@ -246,6 +254,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private bool FindParentLayoutDocumentPane( ILayoutDocumentPane documentPane, out LayoutDocumentPaneGroup containerPaneGroup, out LayoutPanel containerPanel )
     {
+      Logger.InfoFormat("_");
+
       containerPaneGroup = null;
       containerPanel = null;
 

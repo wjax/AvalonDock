@@ -23,6 +23,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorablePaneGroupControl : LayoutGridControl<ILayoutAnchorablePane>, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorablePaneGroup _model;
 
@@ -42,6 +46,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnFixChildrenDockLengths()
     {
+      Logger.InfoFormat("_");
+
       #region Setup DockWidth/Height for children
       if( _model.Orientation == Orientation.Horizontal )
       {

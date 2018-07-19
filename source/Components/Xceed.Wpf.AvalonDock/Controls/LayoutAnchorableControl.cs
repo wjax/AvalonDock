@@ -22,6 +22,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class LayoutAnchorableControl : Control
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     static LayoutAnchorableControl()
@@ -76,6 +81,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnModelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
       {
         ( ( LayoutContent )e.OldValue ).PropertyChanged -= Model_PropertyChanged;
@@ -139,6 +146,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetLayoutItem( LayoutItem value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( LayoutItemPropertyKey, value );
     }
 
@@ -150,6 +159,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnGotKeyboardFocus( System.Windows.Input.KeyboardFocusChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( Model != null )
         Model.IsActive = true;
 

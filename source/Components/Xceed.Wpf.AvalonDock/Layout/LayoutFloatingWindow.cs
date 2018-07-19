@@ -25,6 +25,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public abstract class LayoutFloatingWindow : LayoutElement, ILayoutContainer, IXmlSerializable
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public LayoutFloatingWindow()
@@ -79,6 +84,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public virtual void WriteXml( XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       foreach( var child in Children )
       {
         var type = child.GetType();

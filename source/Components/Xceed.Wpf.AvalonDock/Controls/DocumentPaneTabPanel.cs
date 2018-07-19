@@ -1,4 +1,4 @@
-﻿/*************************************************************************************
+/*************************************************************************************
 
    Extended WPF Toolkit
 
@@ -24,6 +24,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class DocumentPaneTabPanel : Panel
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public DocumentPaneTabPanel()
@@ -37,6 +42,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size MeasureOverride( Size availableSize )
     {
+      Logger.InfoFormat("_");
+
       var visibleChildren = Children.Cast<UIElement>().Where( ch => ch.Visibility != System.Windows.Visibility.Collapsed );
 
       Size desideredSize = new Size();
@@ -53,6 +60,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size ArrangeOverride( Size finalSize )
     {
+      Logger.InfoFormat("_");
+
       var visibleChildren = Children.Cast<UIElement>().Where( ch => ch.Visibility != System.Windows.Visibility.Collapsed );
       var offset = 0.0;
       var skipAllOthers = false;
@@ -91,6 +100,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       //if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed &&
       //    LayoutDocumentTabItem.IsDraggingItem())
       //{

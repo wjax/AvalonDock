@@ -27,6 +27,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class OverlayWindow : Window, IOverlayWindow
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private ResourceDictionary currentThemeResourceDictionary; // = null
     private Canvas _mainCanvasPanel;
@@ -95,6 +99,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override void OnApplyTemplate()
     {
+      Logger.InfoFormat("_");
+
       base.OnApplyTemplate();
 
       _mainCanvasPanel = GetTemplateChild( "PART_DropTargetsContainer" ) as Canvas;
@@ -142,6 +148,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClosing( System.ComponentModel.CancelEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnClosing( e );
     }
 
@@ -151,6 +159,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void UpdateThemeResources( Theme oldTheme = null )
     {
+      Logger.InfoFormat("_");
+
       if( oldTheme != null )
       {
         if( oldTheme is DictionaryTheme )
@@ -187,12 +197,16 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void EnableDropTargets()
     {
+      Logger.InfoFormat("_");
+
       if( _mainCanvasPanel != null )
         _mainCanvasPanel.Visibility = System.Windows.Visibility.Visible;
     }
 
     internal void HideDropTargets()
     {
+      Logger.InfoFormat("_");
+
       if( _mainCanvasPanel != null )
         _mainCanvasPanel.Visibility = System.Windows.Visibility.Hidden;
 
@@ -338,6 +352,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     IEnumerable<IDropTarget> IOverlayWindow.GetTargets()
     {
+      Logger.InfoFormat("_");
+
       foreach( var visibleArea in _visibleAreas )
       {
         switch( visibleArea.Type )
@@ -481,18 +497,24 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     void IOverlayWindow.DragEnter( LayoutFloatingWindowControl floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       _floatingWindow = floatingWindow;
       EnableDropTargets();
     }
 
     void IOverlayWindow.DragLeave( LayoutFloatingWindowControl floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       Visibility = System.Windows.Visibility.Hidden;
       _floatingWindow = null;
     }
 
     void IOverlayWindow.DragEnter( IDropArea area )
     {
+      Logger.InfoFormat("_");
+
       _visibleAreas.Add( area );
 
       FrameworkElement areaElement;
@@ -675,6 +697,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     void IOverlayWindow.DragLeave( IDropArea area )
     {
+      Logger.InfoFormat("_");
+
       _visibleAreas.Remove( area );
 
       FrameworkElement areaElement;
@@ -706,6 +730,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     void IOverlayWindow.DragEnter( IDropTarget target )
     {
+      Logger.InfoFormat("_");
+
       var previewBoxPath = target.GetPreviewPath( this, _floatingWindow.Model as LayoutFloatingWindow );
       if( previewBoxPath != null )
       {
@@ -716,11 +742,15 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     void IOverlayWindow.DragLeave( IDropTarget target )
     {
+      Logger.InfoFormat("_");
+
       _previewBox.Visibility = System.Windows.Visibility.Hidden;
     }
 
     void IOverlayWindow.DragDrop( IDropTarget target )
     {
+      Logger.InfoFormat("_");
+
       target.Drop( _floatingWindow.Model as LayoutFloatingWindow );
     }
 

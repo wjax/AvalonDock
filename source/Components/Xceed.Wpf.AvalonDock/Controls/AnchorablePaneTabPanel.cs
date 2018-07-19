@@ -24,6 +24,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class AnchorablePaneTabPanel : Panel
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public AnchorablePaneTabPanel()
@@ -37,6 +42,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size MeasureOverride( Size availableSize )
     {
+      Logger.InfoFormat("_");
+
       double totWidth = 0;
       double maxHeight = 0;
       var visibleChildren = Children.Cast<UIElement>().Where( ch => ch.Visibility != System.Windows.Visibility.Collapsed );
@@ -61,6 +68,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size ArrangeOverride( Size finalSize )
     {
+      Logger.InfoFormat("_");
+
       var visibleChildren = Children.Cast<UIElement>().Where( ch => ch.Visibility != System.Windows.Visibility.Collapsed );
 
 
@@ -94,6 +103,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.LeftButton == System.Windows.Input.MouseButtonState.Pressed &&
           LayoutAnchorableTabItem.IsDraggingItem() )
       {

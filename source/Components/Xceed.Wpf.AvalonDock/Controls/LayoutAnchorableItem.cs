@@ -26,6 +26,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorableItem : LayoutItem
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorable _anchorable;
     private ICommand _defaultHideCommand;
@@ -82,6 +86,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnHideCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
     }
 
     /// <summary>
@@ -145,6 +151,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnAutoHideCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -212,6 +219,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnDockCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -273,6 +281,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCanHideChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _anchorable != null )
         _anchorable.CanHide = ( bool )e.NewValue;
     }
@@ -285,6 +295,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal override void Attach( LayoutContent model )
     {
+      Logger.InfoFormat("_");
+
       _anchorable = model as LayoutAnchorable;
       _anchorable.IsVisibleChanged += new EventHandler( _anchorable_IsVisibleChanged );
 
@@ -293,6 +305,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal override void Detach()
     {
+      Logger.InfoFormat("_");
+
       _anchorable.IsVisibleChanged -= new EventHandler( _anchorable_IsVisibleChanged );
       _anchorable = null;
       base.Detach();
@@ -300,6 +314,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Close()
     {
+      Logger.InfoFormat("_");
+
       if( ( _anchorable.Root != null ) && ( _anchorable.Root.Manager != null ) )
       {
         var dockingManager = _anchorable.Root.Manager;
@@ -309,6 +325,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void InitDefaultCommands()
     {
+      Logger.InfoFormat("_");
+
       _defaultHideCommand = new RelayCommand( ( p ) => ExecuteHideCommand( p ), ( p ) => CanExecuteHideCommand( p ) );
       _defaultAutoHideCommand = new RelayCommand( ( p ) => ExecuteAutoHideCommand( p ), ( p ) => CanExecuteAutoHideCommand( p ) );
       _defaultDockCommand = new RelayCommand( ( p ) => ExecuteDockCommand( p ), ( p ) => CanExecuteDockCommand( p ) );
@@ -318,6 +336,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void ClearDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       if( HideCommand == _defaultHideCommand )
         BindingOperations.ClearBinding( this, HideCommandProperty );
       if( AutoHideCommand == _defaultAutoHideCommand )
@@ -330,6 +350,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void SetDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       if( HideCommand == null )
         HideCommand = _defaultHideCommand;
       if( AutoHideCommand == null )
@@ -343,6 +365,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnVisibilityChanged()
     {
+      Logger.InfoFormat("_");
+
       if( _anchorable != null && _anchorable.Root != null )
       {
         if( _visibilityReentrantFlag.CanEnter )

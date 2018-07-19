@@ -22,6 +22,11 @@ namespace Xceed.Wpf.AvalonDock.Controls
 {
   public class DropDownButton : ToggleButton
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     public DropDownButton()
@@ -109,6 +114,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClick()
     {
+      Logger.InfoFormat("_");
+
       if( DropDownContextMenu != null )
       {
         //IsChecked = true;

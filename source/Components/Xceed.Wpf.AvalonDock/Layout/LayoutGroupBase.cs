@@ -23,15 +23,23 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public abstract class LayoutGroupBase : LayoutElement
   {
     #region Internal Methods
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     protected virtual void OnChildrenCollectionChanged()
     {
+      Logger.InfoFormat("_");
+
       if( ChildrenCollectionChanged != null )
         ChildrenCollectionChanged( this, EventArgs.Empty );
     }
 
     protected void NotifyChildrenTreeChanged( ChildrenTreeChange change )
     {
+      Logger.InfoFormat("_");
+
       OnChildrenTreeChanged( change );
       var parentGroup = Parent as LayoutGroupBase;
       if( parentGroup != null )
@@ -40,6 +48,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void OnChildrenTreeChanged( ChildrenTreeChange change )
     {
+      Logger.InfoFormat("_");
+
       if( ChildrenTreeChanged != null )
         ChildrenTreeChanged( this, new ChildrenTreeChangedEventArgs( change ) );
     }

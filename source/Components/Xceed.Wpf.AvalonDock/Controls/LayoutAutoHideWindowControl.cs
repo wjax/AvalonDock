@@ -30,6 +30,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAutoHideWindowControl : HwndHost, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     internal LayoutAnchorableControl _internalHost = null;
 
@@ -147,6 +151,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override System.Runtime.InteropServices.HandleRef BuildWindowCore( System.Runtime.InteropServices.HandleRef hwndParent )
     {
+      Logger.InfoFormat("_");
+
       parentWindowHandle = hwndParent.Handle;
       _internalHwndSource = new HwndSource( new HwndSourceParameters()
       {
@@ -166,6 +172,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override IntPtr WndProc( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled )
     {
+      Logger.InfoFormat("_");
+
       if( msg == Win32Helper.WM_WINDOWPOSCHANGING )
       {
         if( _internalHost_ContentRendered )
@@ -176,6 +184,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void DestroyWindowCore( System.Runtime.InteropServices.HandleRef hwnd )
     {
+      Logger.InfoFormat("_");
+
       if( _internalHwndSource != null )
       {
         _internalHwndSource.ContentRendered -= _internalHwndSource_ContentRendered;
@@ -186,11 +196,15 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override void OnApplyTemplate()
     {
+      Logger.InfoFormat("_");
+
       base.OnApplyTemplate();
     }
 
     protected override bool HasFocusWithinCore()
     {
+      Logger.InfoFormat("_");
+
       return false;
     }
 
@@ -206,6 +220,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size MeasureOverride( Size constraint )
     {
+      Logger.InfoFormat("_");
+
       if( _internalHostPresenter == null )
         return base.MeasureOverride( constraint );
 
@@ -216,6 +232,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override Size ArrangeOverride( Size finalSize )
     {
+      Logger.InfoFormat("_");
+
       if( _internalHostPresenter == null )
         return base.ArrangeOverride( finalSize );
 
@@ -229,6 +247,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void Show( LayoutAnchorControl anchor )
     {
+      Logger.InfoFormat("_");
+
       if( _model != null )
         throw new InvalidOperationException();
 
@@ -247,6 +267,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void Hide()
     {
+      Logger.InfoFormat("_");
+
       if( _model == null )
         return;
 

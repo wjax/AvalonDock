@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorableTabItem : Control
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private bool _isMouseDown = false;
     private static LayoutAnchorableTabItem _draggingItem = null;
@@ -84,6 +88,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnModelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+        
       if( Model != null )
         SetLayoutItem( Model.Root.Manager.GetLayoutItemFromModel( Model ) );
       else
@@ -140,6 +146,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseMove( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseMove( e );
 
       if( e.LeftButton != MouseButtonState.Pressed )
@@ -155,6 +163,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonUp( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       _isMouseDown = false;
 
       base.OnMouseLeftButtonUp( e );
@@ -164,6 +174,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeave( e );
 
       if( _isMouseDown && e.LeftButton == MouseButtonState.Pressed )
@@ -179,6 +191,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseEnter( MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseEnter( e );
 
       if( _draggingItem != this &&
@@ -200,6 +214,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnPreviewGotKeyboardFocus( KeyboardFocusChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+      
       base.OnPreviewGotKeyboardFocus( e );
 
     }
@@ -210,19 +226,29 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal static bool IsDraggingItem()
     {
+      Logger.InfoFormat("_");
+
       return _draggingItem != null;
     }
 
     internal static LayoutAnchorableTabItem GetDraggingItem()
     {
+      Logger.InfoFormat("_");
+
       return _draggingItem;
     }
+    
     internal static void ResetDraggingItem()
     {
+      Logger.InfoFormat("_");
+      
       _draggingItem = null;
     }
+    
     internal static void CancelMouseLeave()
     {
+      Logger.InfoFormat("_");
+
       _cancelMouseLeave = true;
     }
 

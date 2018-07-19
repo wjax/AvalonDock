@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutDocumentItem : LayoutItem
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutDocument _document;
 
@@ -88,6 +92,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Close()
     {
+      Logger.InfoFormat("_");
+
       if( ( _document.Root != null ) && ( _document.Root.Manager != null ) )
       {
         var dockingManager = _document.Root.Manager;
@@ -97,6 +103,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnVisibilityChanged()
     {
+      Logger.InfoFormat("_");
+
       if( (_document != null) && (_document.Root != null) )
       {
         _document.IsVisible = ( this.Visibility == Visibility.Visible );
@@ -118,12 +126,16 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal override void Attach( LayoutContent model )
     {
+      Logger.InfoFormat("_");
+
       _document = model as LayoutDocument;
       base.Attach( model );
     }
 
     internal override void Detach()
     {
+      Logger.InfoFormat("_");
+
       _document = null;
       base.Detach();
     }

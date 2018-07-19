@@ -31,6 +31,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorableFloatingWindowControl : LayoutFloatingWindowControl, IOverlayWindowHost
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorableFloatingWindow _model;
     private OverlayWindow _overlayWindow = null;
@@ -113,6 +117,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnInitialized( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnInitialized( e );
 
       var manager = _model.Root.Manager;
@@ -138,6 +144,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClosed( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       var root = Model.Root;
       root.Manager.RemoveFloatingWindow( this );
       root.CollectGarbage();
@@ -159,6 +167,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClosing( System.ComponentModel.CancelEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( CloseInitiatedByUser && !KeepContentVisibleOnClose )
       {
         e.Cancel = true;
@@ -170,6 +180,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override IntPtr FilterMessage( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled )
     {
+      Logger.InfoFormat("_");
+
       switch( msg )
       {
         case Win32Helper.WM_NCLBUTTONDOWN: //Left button down on title -> start dragging over docking manager
@@ -199,6 +211,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal override void UpdateThemeResources( Xceed.Wpf.AvalonDock.Themes.Theme oldTheme = null )
     {
+      Logger.InfoFormat("_");
+
       base.UpdateThemeResources( oldTheme );
 
       if( _overlayWindow != null )
@@ -271,6 +285,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private bool CanExecuteHideWindowCommand( object parameter )
     {
+      Logger.InfoFormat("_");
+
       if( Model == null )
         return false;
 
@@ -379,6 +395,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     bool IOverlayWindowHost.HitTest( Point dragPoint )
     {
+      Logger.InfoFormat("_");
+
       Rect detectionRect = new Rect( this.PointToScreenDPIWithoutFlowDirection( new Point() ), this.TransformActualSizeToAncestor() );
       return detectionRect.Contains( dragPoint );
     }
@@ -393,6 +411,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     IOverlayWindow IOverlayWindowHost.ShowOverlayWindow( LayoutFloatingWindowControl draggingWindow )
     {
+      Logger.InfoFormat("_");
+
       CreateOverlayWindow();
       _overlayWindow.Owner = draggingWindow;
       _overlayWindow.EnableDropTargets();
@@ -403,6 +423,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     void IOverlayWindowHost.HideOverlayWindow()
     {
+      Logger.InfoFormat("_");
+
       _dropAreas = null;
       _overlayWindow.Owner = null;
       _overlayWindow.HideDropTargets();
@@ -410,6 +432,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     IEnumerable<IDropArea> IOverlayWindowHost.GetDropAreas( LayoutFloatingWindowControl draggingWindow )
     {
+      Logger.InfoFormat("_");
+        
       if( _dropAreas != null )
         return _dropAreas;
 

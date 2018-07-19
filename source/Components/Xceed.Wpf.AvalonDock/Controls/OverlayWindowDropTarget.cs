@@ -21,7 +21,6 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class OverlayWindowDropTarget : IOverlayWindowDropTarget
   {
     #region Members
-
     private IOverlayWindowArea _overlayArea;
     private Rect _screenDetectionArea;
     private OverlayWindowDropTargetType _type;

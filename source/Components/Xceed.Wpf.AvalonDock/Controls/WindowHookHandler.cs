@@ -49,6 +49,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class WindowHookHandler
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private IntPtr _windowHook;
     private Win32Helper.HookProc _hookProc;
@@ -68,6 +72,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void Attach()
     {
+      Logger.InfoFormat("_");
+
       _hookProc = new Win32Helper.HookProc( this.HookProc );
       _windowHook = Win32Helper.SetWindowsHookEx(
           Win32Helper.HookType.WH_CBT,
@@ -78,11 +84,15 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void Detach()
     {
+      Logger.InfoFormat("_");
+
       Win32Helper.UnhookWindowsHookEx( _windowHook );
     }
 
     public int HookProc( int code, IntPtr wParam, IntPtr lParam )
     {
+      Logger.InfoFormat("_");
+
       if( code == Win32Helper.HCBT_SETFOCUS )
       {
         if( FocusChanged != null )

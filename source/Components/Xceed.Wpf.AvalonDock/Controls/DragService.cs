@@ -24,6 +24,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class DragService
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private DockingManager _manager;
     private LayoutFloatingWindowControl _floatingWindow;
@@ -48,6 +52,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void UpdateMouseLocation( Point dragPosition )
     {
+      Logger.InfoFormat("_");
+
       var floatingWindowModel = _floatingWindow.Model as LayoutFloatingWindow;
 
       var newHost = _overlayWindowHosts.FirstOrDefault( oh => oh.HitTest( dragPosition ) );
@@ -137,6 +143,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void Drop( Point dropLocation, out bool dropHandled )
     {
+      Logger.InfoFormat("_");
+
       dropHandled = false;
 
       UpdateMouseLocation( dropLocation );
@@ -172,6 +180,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void Abort()
     {
+      Logger.InfoFormat("_");
+
       var floatingWindowModel = _floatingWindow.Model as LayoutFloatingWindow;
 
       _currentWindowAreas.ForEach( a => _currentWindow.DragLeave( a ) );

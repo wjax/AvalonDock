@@ -24,6 +24,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class DocumentPaneDropTarget : DropTarget<LayoutDocumentPaneControl>
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutDocumentPaneControl _targetPane;
     private int _tabIndex = -1;
@@ -51,6 +55,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Drop( LayoutDocumentFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       ILayoutDocumentPane targetModel = _targetPane.Model as ILayoutDocumentPane;
 
       switch( Type )
@@ -236,6 +242,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void Drop( LayoutAnchorableFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       ILayoutDocumentPane targetModel = _targetPane.Model as ILayoutDocumentPane;
 
       switch( Type )
@@ -442,6 +450,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override System.Windows.Media.Geometry GetPreviewPath( OverlayWindow overlayWindow, LayoutFloatingWindow floatingWindowModel )
     {
+      Logger.InfoFormat("_");
+
       switch( Type )
       {
         case DropTargetType.DocumentPaneDockInside:

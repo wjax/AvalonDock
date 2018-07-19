@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorablePaneControl : TabControl, ILayoutControl//, ILogicalChildrenContainer
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorablePane _model;
 
@@ -68,6 +72,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnGotKeyboardFocus( System.Windows.Input.KeyboardFocusChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( ( _model != null ) && ( _model.SelectedContent != null ) )
       {
         _model.SelectedContent.IsActive = true;
@@ -78,6 +84,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeftButtonDown( e );
 
       if( !e.Handled && ( _model != null ) && ( _model.SelectedContent != null ) )
@@ -88,6 +96,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseRightButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseRightButtonDown( e );
 
       if( !e.Handled && ( _model != null ) && ( _model.SelectedContent != null ) )

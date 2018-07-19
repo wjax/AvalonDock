@@ -32,6 +32,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public abstract class LayoutFloatingWindowControl : Window, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private ResourceDictionary currentThemeResourceDictionary; // = null
     private bool _isInternalChange; //false
@@ -102,6 +106,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetIsDragging( bool value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( IsDraggingPropertyKey, value );
     }
 
@@ -118,6 +124,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIsDraggingChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( ( bool )e.NewValue )
       {
         CaptureMouse();
@@ -185,6 +193,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnStateChanged( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( !_isInternalChange )
       {
         if( WindowState == WindowState.Maximized )
@@ -208,6 +218,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClosed( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( Content != null )
       {
         var host = Content as FloatingWindowContentHost;
@@ -226,6 +238,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnInitialized( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       CommandBindings.Add( new CommandBinding( Microsoft.Windows.Shell.SystemCommands.CloseWindowCommand,
           new ExecutedRoutedEventHandler( ( s, args ) => Microsoft.Windows.Shell.SystemCommands.CloseWindow( ( Window )args.Parameter ) ) ) );
       CommandBindings.Add( new CommandBinding( Microsoft.Windows.Shell.SystemCommands.MaximizeWindowCommand,
@@ -245,6 +259,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal virtual void UpdateThemeResources( Theme oldTheme = null )
     {
+      Logger.InfoFormat("_");
+
       if( oldTheme != null )
       {
         if( oldTheme is DictionaryTheme )
@@ -282,6 +298,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void AttachDrag( bool onActivated = true )
     {
+      Logger.InfoFormat("_");
+
       if( onActivated )
       {
         _attachDrag = true;
@@ -297,6 +315,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual IntPtr FilterMessage( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled )
     {
+      Logger.InfoFormat("_");
+
       handled = false;
 
       switch( msg )
@@ -360,6 +380,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void InternalClose()
     {
+      Logger.InfoFormat("_");
+
       // Check before Close in InternalClose
       // https://github.com/xceedsoftware/wpftoolkit/issues/1310
       if( _internalCloseFlag )
@@ -480,6 +502,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
       public FloatingWindowContentHost( LayoutFloatingWindowControl owner )
       {
+        Logger.InfoFormat("_");
+
         _owner = owner;
         var manager = _owner.Model.Root.Manager;
       }
@@ -537,6 +561,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
       /// </summary>
       protected virtual void OnContentChanged( DependencyPropertyChangedEventArgs e )
       {
+        Logger.InfoFormat("_");
+
         if( _rootPresenter != null )
           _rootPresenter.Child = Content;
       }
@@ -549,6 +575,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
       protected override System.Runtime.InteropServices.HandleRef BuildWindowCore( System.Runtime.InteropServices.HandleRef hwndParent )
       {
+        Logger.InfoFormat("_");
+
         _wpfContentHost = new HwndSource( new HwndSourceParameters()
         {
           ParentWindow = hwndParent.Handle,
@@ -569,6 +597,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
       protected override void DestroyWindowCore( HandleRef hwnd )
       {
+        Logger.InfoFormat("_");
+
         _manager.InternalRemoveLogicalChild( _rootPresenter );
         if( _wpfContentHost != null )
         {
@@ -579,6 +609,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
       protected override Size MeasureOverride( Size constraint )
       {
+        Logger.InfoFormat("_");
+
         if( Content == null )
           return base.MeasureOverride( constraint );
 

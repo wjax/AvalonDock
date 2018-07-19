@@ -27,6 +27,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal abstract class DropTarget<T> : DropTargetBase, IDropTarget where T : FrameworkElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private Rect[] _detectionRect;
     private T _targetElement;
@@ -96,6 +100,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void Drop( LayoutFloatingWindow floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       var root = floatingWindow.Root;
       var currentActiveContent = floatingWindow.Root.ActiveContent;
       var fwAsAnchorable = floatingWindow as LayoutAnchorableFloatingWindow;
@@ -120,6 +126,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public virtual bool HitTest( Point dragPoint )
     {
+      Logger.InfoFormat("_");
+
       return _detectionRect.Any( dr => dr.Contains( dragPoint ) );
     }
 
@@ -127,11 +135,15 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void DragEnter()
     {
+      Logger.InfoFormat("_");
+
       SetIsDraggingOver( TargetElement, true );
     }
 
     public void DragLeave()
     {
+      Logger.InfoFormat("_");
+
       SetIsDraggingOver( TargetElement, false );
     }
 

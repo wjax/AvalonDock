@@ -24,7 +24,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public abstract class LayoutPositionableGroup<T> : LayoutGroup<T>, ILayoutPositionableElement, ILayoutPositionableElementWithActualSize where T : class, ILayoutElement
   {
     #region Members
-
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+    
     private static GridLengthConverter _gridLengthConverter = new GridLengthConverter();
 
     #endregion
@@ -334,6 +338,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       if( DockWidth.Value != 1.0 || !DockWidth.IsStar )
         writer.WriteAttributeString( "DockWidth", _gridLengthConverter.ConvertToInvariantString( DockWidth ) );
       if( DockHeight.Value != 1.0 || !DockHeight.IsStar )
@@ -361,6 +367,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "DockWidth" ) )
         _dockWidth = ( GridLength )_gridLengthConverter.ConvertFromInvariantString( reader.Value );
       if( reader.MoveToAttribute( "DockHeight" ) )

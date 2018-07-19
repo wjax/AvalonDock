@@ -28,6 +28,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class NavigatorWindow : Window
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private const string PART_AnchorableListBox = "PART_AnchorableListBox";
     private const string PART_DocumentListBox = "PART_DocumentListBox";
@@ -168,6 +172,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnSelectedDocumentChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _internalSetSelectedDocument )
         return;
 
@@ -218,6 +224,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnSelectedAnchorableChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _internalSetSelectedAnchorable )
         return;
 
@@ -238,6 +246,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public override void OnApplyTemplate()
     {
+      Logger.InfoFormat("_");
+
       base.OnApplyTemplate();
 
       _anchorableListBox = this.GetTemplateChild( PART_AnchorableListBox ) as ListBox;
@@ -246,6 +256,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnPreviewKeyDown( System.Windows.Input.KeyEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       bool shouldHandle = false;
 
       // Press Tab to switch Selected LayoutContent.
@@ -324,6 +336,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnPreviewKeyUp( System.Windows.Input.KeyEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.Key != System.Windows.Input.Key.Tab )
       {
         this.Close();
@@ -359,6 +373,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetAnchorables( IEnumerable<LayoutAnchorableItem> value )
     {
+      Logger.InfoFormat("_");
+
       this.SetValue( AnchorablesPropertyKey, value );
     }
 
@@ -369,6 +385,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetDocuments( LayoutDocumentItem[] value )
     {
+      Logger.InfoFormat("_");
+
       this.SetValue( DocumentsPropertyKey, value );
     }
 

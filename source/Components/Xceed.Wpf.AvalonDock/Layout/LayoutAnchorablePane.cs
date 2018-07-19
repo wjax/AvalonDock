@@ -26,6 +26,10 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public class LayoutAnchorablePane : LayoutPositionableGroup<LayoutAnchorable>, ILayoutAnchorablePane, ILayoutPositionableElement, ILayoutContentSelector, ILayoutPaneSerializable
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private int _selectedIndex = -1;
     [XmlIgnore]
@@ -159,11 +163,15 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
+      Logger.InfoFormat("_");
+
       return Children.Count > 0 && Children.Any( c => c.IsVisible );
     }
 
     protected override void ChildMoved( int oldIndex, int newIndex )
     {
+      Logger.InfoFormat("_");
+
       if( _selectedIndex == oldIndex )
       {
         RaisePropertyChanging( "SelectedContentIndex" );
@@ -177,6 +185,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnChildrenCollectionChanged()
     {
+      Logger.InfoFormat("_");
+
       AutoFixSelectedContent();
       for( int i = 0; i < Children.Count; i++ )
       {
@@ -195,6 +205,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnParentChanged( ILayoutContainer oldValue, ILayoutContainer newValue )
     {
+      Logger.InfoFormat("_");
+
       var oldGroup = oldValue as ILayoutGroup;
       if( oldGroup != null )
         oldGroup.ChildrenCollectionChanged -= new EventHandler( OnParentChildrenCollectionChanged );
@@ -210,6 +222,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       if( _id != null )
         writer.WriteAttributeString( "Id", _id );
       if( _name != null )
@@ -220,6 +234,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Id" ) )
         _id = reader.Value;
       if( reader.MoveToAttribute( "Name" ) )
@@ -248,6 +264,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public int IndexOf( LayoutContent content )
     {
+      Logger.InfoFormat("_");
+
       var anchorableChild = content as LayoutAnchorable;
       if( anchorableChild == null )
         return -1;
@@ -274,6 +292,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void SetNextSelectedIndex()
     {
+      Logger.InfoFormat("_");
+
       SelectedContentIndex = -1;
       for( int i = 0; i < this.Children.Count; ++i )
       {
@@ -287,6 +307,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void UpdateIsDirectlyHostedInFloatingWindow()
     {
+      Logger.InfoFormat("_");
+
       RaisePropertyChanged( "IsDirectlyHostedInFloatingWindow" );
     }
 

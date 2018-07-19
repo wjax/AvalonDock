@@ -23,6 +23,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   internal class AutoHideWindowManager
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private DockingManager _manager;
     private WeakReference _currentAutohiddenAnchor = null;
@@ -44,6 +48,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void ShowAutoHideWindow( LayoutAnchorControl anchor )
     {
+      Logger.InfoFormat("_");
+
       if( _currentAutohiddenAnchor.GetValueOrDefault<LayoutAnchorControl>() != anchor )
       {
         StopCloseTimer();
@@ -55,6 +61,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     public void HideAutoWindow( LayoutAnchorControl anchor = null )
     {
+      Logger.InfoFormat("_");
+
       if( anchor == null ||
           anchor == _currentAutohiddenAnchor.GetValueOrDefault<LayoutAnchorControl>() )
       {
@@ -66,6 +74,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private void SetupCloseTimer()
     {
+      Logger.InfoFormat("_");
+
       _closeTimer = new DispatcherTimer( DispatcherPriority.Background );
       _closeTimer.Interval = TimeSpan.FromMilliseconds( 1500 );
       _closeTimer.Tick += ( s, e ) =>

@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public abstract class LayoutElement : DependencyObject, ILayoutElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     [NonSerialized]
     private ILayoutContainer _parent = null;
@@ -130,6 +134,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void OnRootChanged( ILayoutRoot oldRoot, ILayoutRoot newRoot )
     {
+      Logger.InfoFormat("_");
+
       if( oldRoot != null )
         ( ( LayoutRoot )oldRoot ).OnLayoutElementRemoved( this );
       if( newRoot != null )
@@ -138,12 +144,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void RaisePropertyChanged( string propertyName )
     {
+      Logger.InfoFormat("_");
+
       if( PropertyChanged != null )
         PropertyChanged( this, new System.ComponentModel.PropertyChangedEventArgs( propertyName ) );
     }
 
     protected virtual void RaisePropertyChanging( string propertyName )
     {
+      Logger.InfoFormat("_");
+
       if( PropertyChanging != null )
         PropertyChanging( this, new System.ComponentModel.PropertyChangingEventArgs( propertyName ) );
     }

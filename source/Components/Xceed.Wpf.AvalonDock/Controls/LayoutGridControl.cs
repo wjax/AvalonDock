@@ -28,6 +28,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public abstract class LayoutGridControl<T> : Grid, ILayoutControl where T : class, ILayoutPanelElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutPositionableGroup<T> _model;
     private Orientation _orientation;
@@ -48,6 +52,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal LayoutGridControl( LayoutPositionableGroup<T> model, Orientation orientation )
     {
+      Logger.InfoFormat("_");
+
       if( model == null )
         throw new ArgumentNullException( "model" );
 
@@ -91,6 +97,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnInitialized( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnInitialized( e );
 
       _model.ChildrenTreeChanged += ( s, args ) =>
@@ -115,6 +123,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected void FixChildrenDockLengths()
     {
+      Logger.InfoFormat("_");
+
       using( _fixingChildrenDockLengths.Enter() )
         OnFixChildrenDockLengths();
     }

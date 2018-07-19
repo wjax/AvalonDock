@@ -29,6 +29,10 @@ namespace Xceed.Wpf.AvalonDock.Layout
   public class LayoutAnchorableFloatingWindow : LayoutFloatingWindow, ILayoutElementWithVisibility
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorablePaneGroup _rootPanel = null;
     [NonSerialized]
@@ -152,12 +156,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void RemoveChild( ILayoutElement element )
     {
+      Logger.InfoFormat("_");
+
       Debug.Assert( element == RootPanel && element != null );
       RootPanel = null;
     }
 
     public override void ReplaceChild( ILayoutElement oldElement, ILayoutElement newElement )
     {
+      Logger.InfoFormat("_");
+
       Debug.Assert( oldElement == RootPanel && oldElement != null );
       RootPanel = newElement as LayoutAnchorablePaneGroup;
     }
@@ -182,6 +190,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public override void ReadXml( XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       reader.MoveToContent();
       if( reader.IsEmptyElement )
       {
@@ -243,6 +253,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     private void _rootPanel_ChildrenTreeChanged( object sender, ChildrenTreeChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       RaisePropertyChanged( "IsSinglePane" );
       RaisePropertyChanged( "SinglePane" );
     }
@@ -267,6 +279,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     void ILayoutElementWithVisibility.ComputeVisibility()
     {
+      Logger.InfoFormat("_");
+
       ComputeVisibility();
     }
 

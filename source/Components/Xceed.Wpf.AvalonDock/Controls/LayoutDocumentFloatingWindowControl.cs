@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutDocumentFloatingWindowControl : LayoutFloatingWindowControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutDocumentFloatingWindow _model;
 
@@ -70,6 +74,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnInitialized( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnInitialized( e );
 
       if( _model.RootDocument == null )
@@ -88,6 +94,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override IntPtr FilterMessage( IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled )
     {
+      Logger.InfoFormat("_");
+
       switch( msg )
       {
         case Win32Helper.WM_NCLBUTTONDOWN: //Left button down on title -> start dragging over docking manager
@@ -116,6 +124,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnClosed( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       var root = Model.Root;
       root.Manager.RemoveFloatingWindow( this );
       root.CollectGarbage();

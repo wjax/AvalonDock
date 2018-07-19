@@ -27,6 +27,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutDocumentTabItem : Control
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private List<Rect> _otherTabsScreenArea = null;
     private List<TabItem> _otherTabs = null;
@@ -90,6 +94,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnModelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( Model != null )
         SetLayoutItem( Model.Root.Manager.GetLayoutItemFromModel( Model ) );
       else
@@ -139,6 +145,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeftButtonDown( e );
 
       Model.IsActive = true;
@@ -152,6 +160,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseMove( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseMove( e );
 
       if( _isMouseDown )
@@ -200,6 +210,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonUp( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( IsMouseCaptured )
         ReleaseMouseCapture();
       _isMouseDown = false;
@@ -209,18 +221,24 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeave( e );
       _isMouseDown = false;
     }
 
     protected override void OnMouseEnter( MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseEnter( e );
       _isMouseDown = false;
     }
 
     protected override void OnMouseDown( MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.ChangedButton == MouseButton.Middle )
       {
         if( LayoutItem.CloseCommand.CanExecute( null ) )

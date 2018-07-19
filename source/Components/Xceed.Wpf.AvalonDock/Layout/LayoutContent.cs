@@ -30,6 +30,11 @@ namespace Xceed.Wpf.AvalonDock.Layout
   [Serializable]
   public abstract class LayoutContent : LayoutElement, IXmlSerializable, ILayoutElementForFloatingWindow, IComparable<LayoutContent>, ILayoutPreviousContainer
   {
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     #region Constructors
 
     internal LayoutContent()
@@ -200,6 +205,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// </summary>
     protected virtual void OnIsActiveChanged( bool oldValue, bool newValue )
     {
+      Logger.InfoFormat("_");
+
       if( newValue )
         LastActivationTimeStamp = DateTime.Now;
 
@@ -574,6 +581,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnParentChanging( ILayoutContainer oldValue, ILayoutContainer newValue )
     {
+      Logger.InfoFormat("_");
+
       var root = Root;
 
       if( oldValue != null )
@@ -587,6 +596,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override void OnParentChanged( ILayoutContainer oldValue, ILayoutContainer newValue )
     {
+      Logger.InfoFormat("_");
+
       if( IsSelected && Parent != null && Parent is ILayoutContentSelector )
       {
         var parentSelector = ( Parent as ILayoutContentSelector );
@@ -617,6 +628,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public virtual void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Title" ) )
         Title = reader.Value;
       //if (reader.MoveToAttribute("IconSource"))
@@ -655,6 +668,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public virtual void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       if( !string.IsNullOrWhiteSpace( Title ) )
         writer.WriteAttributeString( "Title", Title );
 
@@ -709,6 +724,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public int CompareTo( LayoutContent other )
     {
+      Logger.InfoFormat("_");
+
       var contentAsComparable = Content as IComparable;
       if( contentAsComparable != null )
       {
@@ -723,6 +740,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// </summary>
     public void Float()
     {
+      Logger.InfoFormat("_");
+
       if( PreviousContainer != null &&
           PreviousContainer.FindParent<LayoutFloatingWindow>() != null )
       {
@@ -759,6 +778,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// </summary>
     public void DockAsDocument()
     {
+      Logger.InfoFormat("_");
+
       var root = Root as LayoutRoot;
       if( root == null )
         throw new InvalidOperationException();
@@ -796,6 +817,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// </summary>
     public void Dock()
     {
+      Logger.InfoFormat("_");
+
       if( PreviousContainer != null )
       {
         var currentContainer = Parent as ILayoutContainer;
@@ -845,6 +868,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
     /// <returns></returns>
     internal bool TestCanClose()
     {
+      Logger.InfoFormat("_");
+
       CancelEventArgs args = new CancelEventArgs();
 
       OnClosing( args );
@@ -857,6 +882,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     internal void CloseInternal()
     {
+      Logger.InfoFormat("_");
+
       var root = Root;
       var parentAsContainer = Parent as ILayoutContainer;
       parentAsContainer.RemoveChild( this );
@@ -868,12 +895,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected virtual void OnClosed()
     {
+      Logger.InfoFormat("_");
+
       if( Closed != null )
         Closed( this, EventArgs.Empty );
     }
 
     protected virtual void OnClosing( CancelEventArgs args )
     {
+      Logger.InfoFormat("_");
+
       if( Closing != null )
         Closing( this, args );
     }

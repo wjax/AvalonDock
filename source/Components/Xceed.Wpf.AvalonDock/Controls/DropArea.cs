@@ -42,6 +42,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class DropArea<T> : IDropArea where T : FrameworkElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private Rect _detectionRect;
     private DropAreaType _type;

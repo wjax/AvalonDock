@@ -68,17 +68,23 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
+      Logger.InfoFormat("_");
+
       return Children.Any( c => c.IsVisible );
     }
 
     public override void WriteXml( System.Xml.XmlWriter writer )
     {
+      Logger.InfoFormat("_");
+
       writer.WriteAttributeString( "Orientation", Orientation.ToString() );
       base.WriteXml( writer );
     }
 
     public override void ReadXml( System.Xml.XmlReader reader )
     {
+      Logger.InfoFormat("_");
+
       if( reader.MoveToAttribute( "Orientation" ) )
         Orientation = ( Orientation )Enum.Parse( typeof( Orientation ), reader.Value, true );
       base.ReadXml( reader );
@@ -87,6 +93,8 @@ namespace Xceed.Wpf.AvalonDock.Layout
 #if TRACE
         public override void ConsoleDump(int tab)
         {
+          Logger.InfoFormat("_");
+
           System.Diagnostics.Trace.Write( new string( ' ', tab * 4 ) );
           System.Diagnostics.Trace.WriteLine( string.Format( "Panel({0})", Orientation ) );
 

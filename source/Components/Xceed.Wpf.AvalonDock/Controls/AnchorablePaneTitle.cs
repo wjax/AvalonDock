@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class AnchorablePaneTitle : Control
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private bool _isMouseDown = false;
 
@@ -122,6 +126,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetLayoutItem( LayoutItem value )
     {
+      Logger.InfoFormat("_");
       this.SetValue( LayoutItemPropertyKey, value );
     }
 
@@ -133,6 +138,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseMove( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.LeftButton != MouseButtonState.Pressed )
       {
         _isMouseDown = false;
@@ -143,6 +150,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeave( e );
 
       if( _isMouseDown && e.LeftButton == MouseButtonState.Pressed )
@@ -162,6 +171,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseLeftButtonDown( e );
 
       if( !e.Handled )
@@ -186,6 +197,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeftButtonUp( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       _isMouseDown = false;
       base.OnMouseLeftButtonUp( e );
 

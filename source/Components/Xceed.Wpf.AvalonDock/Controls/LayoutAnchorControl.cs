@@ -25,6 +25,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutAnchorControl : Control, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutAnchorable _model;
     private DispatcherTimer _openUpTimer = null;
@@ -93,6 +97,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// <param name="value">The new value for the property.</param>
     protected void SetSide( AnchorSide value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( SidePropertyKey, value );
     }
 
@@ -165,6 +171,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseDown( System.Windows.Input.MouseButtonEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseDown( e );
 
       if( !e.Handled )
@@ -176,6 +184,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseEnter( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnMouseEnter( e );
 
       if( !e.Handled )
@@ -189,6 +199,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseLeave( System.Windows.Input.MouseEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _openUpTimer != null )
       {
         _openUpTimer.Tick -= new EventHandler( _openUpTimer_Tick );

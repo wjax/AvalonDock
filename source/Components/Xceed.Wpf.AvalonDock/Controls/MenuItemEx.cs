@@ -22,6 +22,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class MenuItemEx : MenuItem
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private bool _reentrantFlag = false;
 
@@ -79,6 +83,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIconTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       UpdateIcon();
     }
 
@@ -121,6 +127,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIconTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       UpdateIcon();
     }
 

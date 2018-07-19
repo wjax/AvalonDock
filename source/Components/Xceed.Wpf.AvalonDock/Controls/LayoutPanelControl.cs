@@ -24,6 +24,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public class LayoutPanelControl : LayoutGridControl<ILayoutPanelElement>, ILayoutControl
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected new static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private LayoutPanel _model;
 
@@ -44,6 +48,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnFixChildrenDockLengths()
     {
+      Logger.InfoFormat("_");
+
       if( ActualWidth == 0.0 ||
           ActualHeight == 0.0 )
         return;

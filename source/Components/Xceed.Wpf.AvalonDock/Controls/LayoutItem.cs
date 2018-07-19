@@ -29,6 +29,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
   public abstract class LayoutItem : FrameworkElement
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private ICommand _defaultCloseCommand;
     private ICommand _defaultFloatCommand;
@@ -148,6 +152,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnTitleChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null )
         LayoutElement.Title = ( string )e.NewValue;
     }
@@ -191,6 +197,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIconSourceChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null )
         LayoutElement.IconSource = IconSource;
     }
@@ -234,6 +242,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnContentIdChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null )
         LayoutElement.ContentId = ( string )e.NewValue;
     }
@@ -277,6 +287,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIsSelectedChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _isSelectedReentrantFlag.CanEnter )
       {
         using( _isSelectedReentrantFlag.Enter() )
@@ -326,6 +338,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnIsActiveChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( _isActiveReentrantFlag.CanEnter )
       {
         using( _isActiveReentrantFlag.Enter() )
@@ -375,6 +389,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCanCloseChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null )
         LayoutElement.CanClose = ( bool )e.NewValue;
     }
@@ -418,6 +434,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCanFloatChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null )
         LayoutElement.CanFloat = ( bool )e.NewValue;
     }
@@ -461,6 +479,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCloseCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -523,6 +542,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnFloatCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -545,7 +565,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual void Float()
     {
-
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -595,6 +615,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnDockAsDocumentCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -654,6 +675,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCloseAllButThisCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -720,6 +742,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnCloseAllCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -786,6 +809,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnActivateCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -845,6 +869,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnNewVerticalTabGroupCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     private bool CanExecuteNewVerticalTabGroupCommand( object parameter )
@@ -919,6 +944,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnNewHorizontalTabGroupCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
 
@@ -994,6 +1020,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnMoveToNextTabGroupCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     private bool CanExecuteMoveToNextTabGroupCommand( object parameter )
@@ -1061,6 +1088,7 @@ namespace Xceed.Wpf.AvalonDock.Controls
     /// </summary>
     protected virtual void OnMoveToPreviousTabGroupCommandChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     private bool CanExecuteMoveToPreviousTabGroupCommand( object parameter )
@@ -1095,6 +1123,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual void InitDefaultCommands()
     {
+      Logger.InfoFormat("_");
+
       _defaultCloseCommand = new RelayCommand( ( p ) => ExecuteCloseCommand( p ), ( p ) => CanExecuteCloseCommand( p ) );
       _defaultFloatCommand = new RelayCommand( ( p ) => ExecuteFloatCommand( p ), ( p ) => CanExecuteFloatCommand( p ) );
       _defaultDockAsDocumentCommand = new RelayCommand( ( p ) => ExecuteDockAsDocumentCommand( p ), ( p ) => CanExecuteDockAsDocumentCommand( p ) );
@@ -1109,6 +1139,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual void ClearDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       if( CloseCommand == _defaultCloseCommand )
         BindingOperations.ClearBinding( this, CloseCommandProperty );
       if( FloatCommand == _defaultFloatCommand )
@@ -1133,6 +1165,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual void SetDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       if( CloseCommand == null )
         CloseCommand = _defaultCloseCommand;
       if( FloatCommand == null )
@@ -1162,6 +1196,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected virtual void OnVisibilityChanged()
     {
+      Logger.InfoFormat("_");
+
       if( LayoutElement != null &&
           Visibility == System.Windows.Visibility.Collapsed )
         LayoutElement.Close();
@@ -1169,6 +1205,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal virtual void Attach( LayoutContent model )
     {
+      Logger.InfoFormat("_");
+
       LayoutElement = model;
       Model = model.Content;
 
@@ -1182,6 +1220,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal virtual void Detach()
     {
+      Logger.InfoFormat("_");
+
       LayoutElement.IsSelectedChanged -= new EventHandler( LayoutElement_IsSelectedChanged );
       LayoutElement.IsActiveChanged -= new EventHandler( LayoutElement_IsActiveChanged );
       LayoutElement = null;
@@ -1190,16 +1230,22 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     internal void _ClearDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       ClearDefaultBindings();
     }
 
     internal void _SetDefaultBindings()
     {
+      Logger.InfoFormat("_");
+
       SetDefaultBindings();
     }
 
     internal bool IsViewExists()
     {
+      Logger.InfoFormat("_");
+
       return ( _view != null );
     }
 
