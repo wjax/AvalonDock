@@ -38,6 +38,10 @@ namespace Xceed.Wpf.AvalonDock
   public class DockingManager : Control, IOverlayWindowHost//, ILogicalChildrenContainer
   {
     #region Members
+    /// <summary>
+    /// Log4net logger facility for this class.
+    /// </summary>
+    protected static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     private ResourceDictionary currentThemeResourceDictionary; // = null
     private AutoHideWindowManager _autoHideWindowManager;
@@ -132,6 +136,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutChanged( LayoutRoot oldLayout, LayoutRoot newLayout )
     {
+      Logger.InfoFormat("_");
+
       if( oldLayout != null )
       {
         oldLayout.PropertyChanged -= new PropertyChangedEventHandler( OnLayoutRootPropertyChanged );
@@ -266,6 +272,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentPaneTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -307,6 +314,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorablePaneTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -426,6 +434,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentPaneControlStyleChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -467,6 +476,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorablePaneControlStyleChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -508,6 +518,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentHeaderTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -560,6 +571,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentHeaderTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.NewValue != null &&
           DocumentHeaderTemplate != null )
         DocumentHeaderTemplate = null;
@@ -616,6 +629,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentTitleTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -669,6 +683,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentTitleTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.NewValue != null )
         DocumentTitleTemplate = null;
     }
@@ -720,6 +736,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorableTitleTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -772,6 +789,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorableTitleTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.NewValue != null &&
           AnchorableTitleTemplate != null )
         AnchorableTitleTemplate = null;
@@ -816,6 +835,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorableHeaderTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -869,6 +889,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorableHeaderTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.NewValue != null )
         AnchorableHeaderTemplate = null;
     }
@@ -912,6 +934,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutRootPanelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -957,6 +981,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnRightSidePanelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -1002,6 +1028,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLeftSidePanelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -1047,6 +1075,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnTopSidePanelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -1092,6 +1122,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnBottomSidePanelChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -1123,6 +1155,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void InternalAddLogicalChild( object element )
     {
+      Logger.InfoFormat("_");
+
 #if DEBUG
       if( _logicalChildren.Select( ch => ch.GetValueOrDefault<object>() ).Contains( element ) )
         new InvalidOperationException();
@@ -1180,6 +1214,8 @@ namespace Xceed.Wpf.AvalonDock
     /// <param name="value">The new value for the property.</param>
     protected void SetAutoHideWindow( LayoutAutoHideWindowControl value )
     {
+      Logger.InfoFormat("_");
+
       SetValue( AutoHideWindowPropertyKey, value );
     }
 
@@ -1196,6 +1232,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAutoHideWindowChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.OldValue != null )
         InternalRemoveLogicalChild( e.OldValue );
       if( e.NewValue != null )
@@ -1254,6 +1292,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutItemTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -1295,6 +1334,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutItemTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     #endregion
@@ -1405,6 +1445,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnAnchorablesSourceChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       DetachAnchorablesSource( Layout, e.OldValue as IEnumerable );
       AttachAnchorablesSource( Layout, e.NewValue as IEnumerable );
     }
@@ -1451,6 +1493,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnActiveContentChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( ActiveContentChanged != null )
         ActiveContentChanged( this, EventArgs.Empty );
     }
@@ -1520,6 +1564,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnThemeChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       var oldTheme = e.OldValue as Theme;
       var newTheme = e.NewValue as Theme;
       var resources = this.Resources;
@@ -1657,6 +1703,7 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentPaneMenuItemHeaderTemplateChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
     }
 
     /// <summary>
@@ -1712,6 +1759,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnDocumentPaneMenuItemHeaderTemplateSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( e.NewValue != null &&
           DocumentPaneMenuItemHeaderTemplate != null )
         DocumentPaneMenuItemHeaderTemplate = null;
@@ -1817,6 +1866,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutItemContainerStyleChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       AttachLayoutItems();
     }
 
@@ -1859,6 +1910,8 @@ namespace Xceed.Wpf.AvalonDock
     /// </summary>
     protected virtual void OnLayoutItemContainerStyleSelectorChanged( DependencyPropertyChangedEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       AttachLayoutItems();
     }
 
@@ -1934,6 +1987,8 @@ namespace Xceed.Wpf.AvalonDock
 
     public override void OnApplyTemplate()
     {
+      Logger.InfoFormat("_");
+
       base.OnApplyTemplate();
 
 
@@ -1942,18 +1997,24 @@ namespace Xceed.Wpf.AvalonDock
 
     protected override void OnInitialized( EventArgs e )
     {
+      Logger.InfoFormat("_");
+
       base.OnInitialized( e );
     }
 
 
     protected override Size ArrangeOverride( Size arrangeBounds )
     {
+      Logger.InfoFormat("_");
+
       _areas = null;
       return base.ArrangeOverride( arrangeBounds );
     }
 
     protected override void OnPreviewKeyDown( KeyEventArgs e )
     {
+      Logger.InfoFormat("_");
+
       if( Keyboard.IsKeyDown( Key.LeftCtrl ) || Keyboard.IsKeyDown( Key.RightCtrl ) )
       {
         if( e.IsDown && e.Key == Key.Tab )
@@ -1980,6 +2041,8 @@ namespace Xceed.Wpf.AvalonDock
     /// <returns>Either a LayoutAnchorableItem or LayoutDocumentItem which contains the LayoutContent passed as argument</returns>
     public LayoutItem GetLayoutItemFromModel( LayoutContent content )
     {
+      Logger.InfoFormat("_");
+
       return _layoutItems.FirstOrDefault( item => item.LayoutElement == content );
     }
 
@@ -1989,6 +2052,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal UIElement CreateUIElementForModel( ILayoutElement model )
     {
+      Logger.InfoFormat("_");
+
       if( model is LayoutPanel )
         return new LayoutPanelControl( model as LayoutPanel );
       if( model is LayoutAnchorablePaneGroup )
@@ -2099,6 +2164,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void ShowAutoHideWindow( LayoutAnchorControl anchor )
     {
+      Logger.InfoFormat("_");
+
       _autoHideWindowManager.ShowAutoHideWindow( anchor );
       //if (_autohideArea == null)
       //    return;
@@ -2118,16 +2185,22 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void HideAutoHideWindow( LayoutAnchorControl anchor )
     {
+      Logger.InfoFormat("_");
+
       _autoHideWindowManager.HideAutoWindow( anchor );
     }
 
     internal FrameworkElement GetAutoHideAreaElement()
     {
+      Logger.InfoFormat("_");
+
       return _autohideArea;
     }
 
     internal void StartDraggingFloatingWindowForContent( LayoutContent contentModel, bool startDrag = true )
     {
+      Logger.InfoFormat("_");
+
       if( !contentModel.CanFloat )
         return;
       var contentModelAsAnchorable = contentModel as LayoutAnchorable;
@@ -2234,6 +2307,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void StartDraggingFloatingWindowForPane( LayoutAnchorablePane paneModel )
     {
+      Logger.InfoFormat("_");
+
       if( paneModel.Children.Any( c => !c.CanFloat ) )
         return;
       var paneAsPositionableElement = paneModel as ILayoutPositionableElement;
@@ -2326,6 +2401,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal IEnumerable<LayoutFloatingWindowControl> GetFloatingWindowsByZOrder()
     {
+      Logger.InfoFormat("_");
+
       var parentWindow = Window.GetWindow( this );
 
       if( parentWindow == null )
@@ -2346,11 +2423,15 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void RemoveFloatingWindow( LayoutFloatingWindowControl floatingWindow )
     {
+      Logger.InfoFormat("_");
+
       _fwList.Remove( floatingWindow );
     }
 
     internal void _ExecuteCloseCommand( LayoutDocument document )
     {
+      Logger.InfoFormat("_");
+
       if( DocumentClosing != null )
       {
         var evargs = new DocumentClosingEventArgs( document );
@@ -2373,6 +2454,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void _ExecuteCloseAllButThisCommand( LayoutContent contentSelected )
     {
+      Logger.InfoFormat("_");
+
       foreach( var contentToClose in Layout.Descendents().OfType<LayoutContent>().Where( d => d != contentSelected && ( d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow ) ).ToArray() )
       {
         this.Close( contentToClose );
@@ -2381,6 +2464,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void _ExecuteCloseAllCommand( LayoutContent contentSelected )
     {
+      Logger.InfoFormat("_");
+
       foreach( var contentToClose in Layout.Descendents().OfType<LayoutContent>().Where( d => ( d.Parent is LayoutDocumentPane || d.Parent is LayoutDocumentFloatingWindow ) ).ToArray() )
       {
         this.Close( contentToClose );
@@ -2389,6 +2474,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void _ExecuteCloseCommand( LayoutAnchorable anchorable )
     {
+      Logger.InfoFormat("_");
+
       var model = anchorable as LayoutAnchorable;
       if( model != null )
       {
@@ -2399,6 +2486,8 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void _ExecuteHideCommand( LayoutAnchorable anchorable )
     {
+      Logger.InfoFormat("_");
+
       var model = anchorable as LayoutAnchorable;
       if( model != null )
       {
@@ -2408,27 +2497,37 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void _ExecuteAutoHideCommand( LayoutAnchorable _anchorable )
     {
+      Logger.InfoFormat("_");
+
       _anchorable.ToggleAutoHide();
     }
 
 
     internal void _ExecuteFloatCommand( LayoutContent contentToFloat )
     {
+      Logger.InfoFormat("_");
+
       contentToFloat.Float();
     }
 
     internal void _ExecuteDockCommand( LayoutAnchorable anchorable )
     {
+      Logger.InfoFormat("_");
+
       anchorable.Dock();
     }
 
     internal void _ExecuteDockAsDocumentCommand( LayoutContent content )
     {
+      Logger.InfoFormat("_");
+
       content.DockAsDocument();
     }
 
     internal void _ExecuteContentActivateCommand( LayoutContent content )
     {
+      Logger.InfoFormat("_");
+
       content.IsActive = true;
     }
 
@@ -3244,6 +3343,8 @@ namespace Xceed.Wpf.AvalonDock
 
     bool IOverlayWindowHost.HitTest( Point dragPoint )
     {
+      Logger.InfoFormat("_");
+
       Rect detectionRect = new Rect( this.PointToScreenDPIWithoutFlowDirection( new Point() ), this.TransformActualSizeToAncestor() );
       return detectionRect.Contains( dragPoint );
     }
@@ -3258,6 +3359,8 @@ namespace Xceed.Wpf.AvalonDock
 
     IOverlayWindow IOverlayWindowHost.ShowOverlayWindow( LayoutFloatingWindowControl draggingWindow )
     {
+      Logger.InfoFormat("_");
+
       CreateOverlayWindow();
       _overlayWindow.Owner = draggingWindow;
       _overlayWindow.EnableDropTargets();
@@ -3267,6 +3370,8 @@ namespace Xceed.Wpf.AvalonDock
 
     void IOverlayWindowHost.HideOverlayWindow()
     {
+      Logger.InfoFormat("_");
+
       _areas = null;
       _overlayWindow.Owner = null;
       _overlayWindow.HideDropTargets();
@@ -3274,6 +3379,8 @@ namespace Xceed.Wpf.AvalonDock
 
     IEnumerable<IDropArea> IOverlayWindowHost.GetDropAreas( LayoutFloatingWindowControl draggingWindow )
     {
+      Logger.InfoFormat("_");
+
       if( _areas != null )
         return _areas;
 

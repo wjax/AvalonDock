@@ -160,13 +160,12 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     protected override void OnMouseMove( System.Windows.Input.MouseEventArgs e )
     {
-      Logger.InfoFormat("_");
-
       base.OnMouseMove( e );
 
       if( _isMouseDown )
       {
         Point ptMouseMove = e.GetPosition( this );
+        Logger.InfoFormat("_isMouseDown == true ptMouseMove X:{0} ptMouseMove Y:{1}", ptMouseMove.X, ptMouseMove.Y);
 
         if( Math.Abs( ptMouseMove.X - _mouseDownPoint.X ) > SystemParameters.MinimumHorizontalDragDistance ||
             Math.Abs( ptMouseMove.Y - _mouseDownPoint.Y ) > SystemParameters.MinimumVerticalDragDistance )
@@ -180,15 +179,19 @@ namespace Xceed.Wpf.AvalonDock.Controls
       if( this.IsMouseCaptured )
       {
         var mousePosInScreenCoord = this.PointToScreenDPI( e.GetPosition( this ) );
+
         if( !_parentDocumentTabPanelScreenArea.Contains( mousePosInScreenCoord ) )
         {
+          Logger.InfoFormat("1> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
           this.StartDraggingFloatingWindowForContent();
         }
         else
         {
+          Logger.InfoFormat("2> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
           int indexOfTabItemWithMouseOver = _otherTabsScreenArea.FindIndex( r => r.Contains( mousePosInScreenCoord ) );
           if( indexOfTabItemWithMouseOver >= 0 )
           {
+            Logger.InfoFormat("3> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
             var targetModel = _otherTabs[ indexOfTabItemWithMouseOver ].Content as LayoutContent;
             var container = this.Model.Parent as ILayoutContainer;
             var containerPane = this.Model.Parent as ILayoutPane;
@@ -268,10 +271,12 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private void StartDraggingFloatingWindowForContent()
     {
+      Logger.InfoFormat("StartDraggingFloatingWindowForContent");
       this.ReleaseMouseCapture();
 
       if( this.Model is LayoutAnchorable )
       {
+        Logger.InfoFormat("Model is LayoutAnchorable");
         ( ( LayoutAnchorable )this.Model ).ResetCanCloseInternal();
       }
       var manager = this.Model.Root.Manager;

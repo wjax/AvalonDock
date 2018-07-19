@@ -119,7 +119,7 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void MoveChild( int oldIndex, int newIndex )
     {
-      Logger.InfoFormat("_");
+      Logger.InfoFormat("oldIndex {0} newIndex {1}");
 
       if( oldIndex == newIndex )
         return;
