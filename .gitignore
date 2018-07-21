@@ -8,6 +8,8 @@ obj/
 cache/
 log/
 tmp/
+packages/
+source/packages/
 
 *~
 *.lock
@@ -20,3 +22,4 @@ tmp/
 /.vs/
 /packages/
 /source/.vs/
+/source/packages/
