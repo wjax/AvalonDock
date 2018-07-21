@@ -2141,6 +2141,10 @@ namespace Xceed.Wpf.AvalonDock
           newFW.Top = paneForExtensions.FloatingTop;
           newFW.Width = paneForExtensions.FloatingWidth;
           newFW.Height = paneForExtensions.FloatingHeight;
+
+          Logger.InfoFormat("paneForExtensions Left {0:0.00} TOP {1:0.00} Width {2:0.00} Height {3:0.00}",
+              paneForExtensions.FloatingTop, paneForExtensions.FloatingLeft,
+              paneForExtensions.FloatingWidth, paneForExtensions.FloatingHeight);
         }
 
         newFW.ShowInTaskbar = false;
@@ -2199,10 +2203,12 @@ namespace Xceed.Wpf.AvalonDock
 
     internal void StartDraggingFloatingWindowForContent( LayoutContent contentModel, bool startDrag = true )
     {
-      Logger.InfoFormat("_");
-
       if( !contentModel.CanFloat )
         return;
+
+    Logger.InfoFormat("Start> contentModel Left {0:0.00} TOP {1:0.00}",
+        contentModel.FloatingLeft, contentModel.FloatingTop);
+
       var contentModelAsAnchorable = contentModel as LayoutAnchorable;
       if( contentModelAsAnchorable != null &&
           contentModelAsAnchorable.IsAutoHidden )
@@ -2255,6 +2261,9 @@ namespace Xceed.Wpf.AvalonDock
                 } )
         };
 
+        Logger.InfoFormat("parentPaneAsPositionableElement Left {0:0.00} TOP {1:0.00}",
+            parentPaneAsPositionableElement.FloatingTop, parentPaneAsPositionableElement.FloatingLeft);
+
         Layout.FloatingWindows.Add( fw );
 
         fwc = new LayoutAnchorableFloatingWindowControl(
@@ -2265,6 +2274,9 @@ namespace Xceed.Wpf.AvalonDock
           Left = contentModel.FloatingLeft,
           Top = contentModel.FloatingTop
         };
+
+        Logger.InfoFormat("1> contentModel Left {0:0.00} TOP {1:0.00}",
+            contentModel.FloatingTop, contentModel.FloatingLeft);
       }
       else
       {
@@ -2284,6 +2296,9 @@ namespace Xceed.Wpf.AvalonDock
           Left = contentModel.FloatingLeft,
           Top = contentModel.FloatingTop
         };
+
+        Logger.InfoFormat("End> contentModel Left {0:0.00} TOP {1:0.00}",
+            contentModel.FloatingLeft, contentModel.FloatingTop);
       }
 
 

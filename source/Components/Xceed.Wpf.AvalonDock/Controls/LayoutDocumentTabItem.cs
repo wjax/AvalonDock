@@ -162,10 +162,13 @@ namespace Xceed.Wpf.AvalonDock.Controls
     {
       base.OnMouseMove( e );
 
+      Logger.InfoFormat("Model FloatingLeft {0:0.00} FloatingTop {1:0.00}",
+          Model.FloatingLeft, Model.FloatingTop);
+
       if( _isMouseDown )
       {
         Point ptMouseMove = e.GetPosition( this );
-        Logger.InfoFormat("_isMouseDown == true ptMouseMove X:{0} ptMouseMove Y:{1}", ptMouseMove.X, ptMouseMove.Y);
+        Logger.InfoFormat("_isMouseDown == true ptMouseMove X:{0:0.00} ptMouseMove Y:{1:0.00}", ptMouseMove.X, ptMouseMove.Y);
 
         if( Math.Abs( ptMouseMove.X - _mouseDownPoint.X ) > SystemParameters.MinimumHorizontalDragDistance ||
             Math.Abs( ptMouseMove.Y - _mouseDownPoint.Y ) > SystemParameters.MinimumVerticalDragDistance )
@@ -182,16 +185,16 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
         if( !_parentDocumentTabPanelScreenArea.Contains( mousePosInScreenCoord ) )
         {
-          Logger.InfoFormat("1> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
+          Logger.InfoFormat("1> IsMouseCaptured == true mousePosInScreenCoord X:{0:0.00} Y:{1:0.00}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
           this.StartDraggingFloatingWindowForContent();
         }
         else
         {
-          Logger.InfoFormat("2> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
+          Logger.InfoFormat("2> IsMouseCaptured == true mousePosInScreenCoord X:{0:0.00} Y:{1:0.00}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
           int indexOfTabItemWithMouseOver = _otherTabsScreenArea.FindIndex( r => r.Contains( mousePosInScreenCoord ) );
           if( indexOfTabItemWithMouseOver >= 0 )
           {
-            Logger.InfoFormat("3> IsMouseCaptured == true mousePosInScreenCoord X:{0} Y:{1}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
+            Logger.InfoFormat("3> IsMouseCaptured == true mousePosInScreenCoord X:{0:0.00} Y:{1:0.00}", mousePosInScreenCoord.X, mousePosInScreenCoord.Y);
             var targetModel = _otherTabs[ indexOfTabItemWithMouseOver ].Content as LayoutContent;
             var container = this.Model.Parent as ILayoutContainer;
             var containerPane = this.Model.Parent as ILayoutPane;
@@ -271,7 +274,9 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     private void StartDraggingFloatingWindowForContent()
     {
-      Logger.InfoFormat("StartDraggingFloatingWindowForContent");
+      Logger.InfoFormat("Model FloatingLeft {0:0.00} FloatingTop {1:0.00}",
+          Model.FloatingLeft, Model.FloatingTop);
+
       this.ReleaseMouseCapture();
 
       if( this.Model is LayoutAnchorable )

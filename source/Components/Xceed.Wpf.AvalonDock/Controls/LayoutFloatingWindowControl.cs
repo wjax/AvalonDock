@@ -307,6 +307,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
       }
       else
       {
+        Logger.InfoFormat("contentModel Left {0:0.00} TOP {1:0.00}", Left, Top);
+
         IntPtr windowHandle = new WindowInteropHelper( this ).Handle;
         IntPtr lParam = new IntPtr( ( ( int )Left & ( int )0xFFFF ) | ( ( ( int )Top ) << 16 ) );
         Win32Helper.SendMessage( windowHandle, Win32Helper.WM_NCLBUTTONDOWN, new IntPtr( Win32Helper.HT_CAPTION ), lParam );
@@ -439,9 +441,13 @@ namespace Xceed.Wpf.AvalonDock.Controls
         var clientArea = Win32Helper.GetClientRect( windowHandle );
         var windowArea = Win32Helper.GetWindowRect( windowHandle );
 
-        Left = mousePosition.X - windowArea.Width / 2.0;
-        Top = mousePosition.Y - ( windowArea.Height - clientArea.Height ) / 2.0;
+        Logger.InfoFormat("1> Left {0:0.00} TOP {1:0.00}", Left, Top);
+
+        Left = (mousePosition.X - (windowArea.Width - clientArea.Width) / 2.0) - 3; // BugFix Issue #6
+        Top = (mousePosition.Y - ( windowArea.Height - clientArea.Height ) / 2.0) - 3;
         _attachDrag = false;
+
+        Logger.InfoFormat("2> Left {0:0.00} TOP {1:0.00}", Left, Top);
 
         IntPtr lParam = new IntPtr( ( ( int )mousePosition.X & ( int )0xFFFF ) | ( ( ( int )mousePosition.Y ) << 16 ) );
         Win32Helper.SendMessage( windowHandle, Win32Helper.WM_NCLBUTTONDOWN, new IntPtr( Win32Helper.HT_CAPTION ), lParam );
@@ -452,6 +458,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     {
       foreach( var posElement in Model.Descendents().OfType<ILayoutElementForFloatingWindow>() )
       {
+        Logger.InfoFormat("contentModel Left {0:0.00} TOP {1:0.00}", Left, Top);
+
         posElement.FloatingLeft = Left;
         posElement.FloatingTop = Top;
         posElement.FloatingWidth = Width;

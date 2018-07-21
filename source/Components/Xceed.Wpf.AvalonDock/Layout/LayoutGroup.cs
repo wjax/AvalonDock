@@ -112,17 +112,18 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     public void ComputeVisibility()
     {
-      Logger.InfoFormat("_");
-
       IsVisible = GetVisibility();
+
+      Logger.InfoFormat("IsVisible {0}", IsVisible);
     }
 
     public void MoveChild( int oldIndex, int newIndex )
     {
-      Logger.InfoFormat("oldIndex {0} newIndex {1}");
-
       if( oldIndex == newIndex )
         return;
+
+      Logger.InfoFormat("oldIndex {0} newIndex {1}", oldIndex, newIndex);
+
       _children.Move( oldIndex, newIndex );
       ChildMoved( oldIndex, newIndex );
     }

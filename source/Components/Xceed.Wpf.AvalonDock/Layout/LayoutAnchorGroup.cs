@@ -41,7 +41,7 @@ namespace Xceed.Wpf.AvalonDock.Layout
 
     protected override bool GetVisibility()
     {
-      Logger.InfoFormat("_");
+      Logger.InfoFormat("Children.Count: {0}", Children.Count);
 
       return Children.Count > 0;
     }
