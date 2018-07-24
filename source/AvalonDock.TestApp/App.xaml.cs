@@ -23,6 +23,8 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Input;
 using System.Diagnostics;
+using log4net.Config;
+using log4net;
 
 namespace AvalonDock.TestApp
 {
@@ -31,8 +33,13 @@ namespace AvalonDock.TestApp
     /// </summary>
     public partial class App : Application
     {
-        public App()
+        protected static ILog Logger; // Enable debugging via Log4Net
+
+        static App()
         {
+            XmlConfigurator.Configure();   // Read Log4Net config from App.config file
+            Logger = LogManager.GetLogger("default");
+
             //Dispatcher.Thread.CurrentUICulture = new System.Globalization.CultureInfo("ru");
         }
     }

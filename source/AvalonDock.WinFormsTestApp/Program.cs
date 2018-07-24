@@ -14,6 +14,8 @@
 
   **********************************************************************/
 
+using log4net;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +25,17 @@ namespace AvalonDock.WinFormsTestApp
 {
     static class Program
     {
+        private static ILog Logger; // Enable debugging via Log4Net
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            XmlConfigurator.Configure();   // Read Log4Net config from App.config file
+            Logger = LogManager.GetLogger("default");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
