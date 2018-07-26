@@ -2201,7 +2201,9 @@ namespace Xceed.Wpf.AvalonDock
       return _autohideArea;
     }
 
-    internal void StartDraggingFloatingWindowForContent( LayoutContent contentModel, bool startDrag = true )
+    internal void StartDraggingFloatingWindowForContent( LayoutContent contentModel,
+                                                         bool startDrag = true,
+                                                         Point dragDelta = default(Point))
     {
       if( !contentModel.CanFloat )
         return;
@@ -2267,12 +2269,13 @@ namespace Xceed.Wpf.AvalonDock
         Layout.FloatingWindows.Add( fw );
 
         fwc = new LayoutAnchorableFloatingWindowControl(
-            fw as LayoutAnchorableFloatingWindow )
+        fw as LayoutAnchorableFloatingWindow )
         {
           Width = fwWidth,
           Height = fwHeight,
           Left = contentModel.FloatingLeft,
-          Top = contentModel.FloatingTop
+          Top = contentModel.FloatingTop,
+          DragDelta = dragDelta             // Setup initial tool window drag delta
         };
 
         Logger.InfoFormat("1> contentModel Left {0:0.00} TOP {1:0.00}",
@@ -2294,7 +2297,8 @@ namespace Xceed.Wpf.AvalonDock
           Width = fwWidth,
           Height = fwHeight,
           Left = contentModel.FloatingLeft,
-          Top = contentModel.FloatingTop
+          Top = contentModel.FloatingTop,
+          DragDelta = dragDelta           // Setup initial document window drag delta
         };
 
         Logger.InfoFormat("End> contentModel Left {0:0.00} TOP {1:0.00}",
