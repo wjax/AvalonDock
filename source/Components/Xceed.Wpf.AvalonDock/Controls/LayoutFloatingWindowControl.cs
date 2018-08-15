@@ -81,7 +81,6 @@ namespace Xceed.Wpf.AvalonDock.Controls
     internal Point DragDelta { get; set; }
 
     #region Model
-
     public abstract ILayoutElement Model
     {
       get;
@@ -450,18 +449,18 @@ namespace Xceed.Wpf.AvalonDock.Controls
       {
         IntPtr windowHandle = new WindowInteropHelper( this ).Handle;
         var mousePosition = this.PointToScreenDPI( Mouse.GetPosition( this ) );
-        var clientArea = Win32Helper.GetClientRect( windowHandle );
-        var windowArea = Win32Helper.GetWindowRect( windowHandle );
+                var clientArea = Win32Helper.GetClientRect(windowHandle);
+                var windowArea = Win32Helper.GetWindowRect(windowHandle);
 
-        Logger.InfoFormat("1> Left {0:0.00} TOP {1:0.00}", Left, Top);
+                Logger.InfoFormat("1> Left {0:0.00} TOP {1:0.00}", Left, Top);
 
-        // A second chance back up plan if DragDelta is not available
-        if (DragDelta == default(Point))
-          DragDelta = new Point(3,3);
+                // A second chance back up plan if DragDelta is not available
+                if (DragDelta == default(Point))
+                    DragDelta = new Point(3, 3);
 
-        Left = mousePosition.X - DragDelta.X; // BugFix Issue #6
-        Top = mousePosition.Y - DragDelta.Y;
-        _attachDrag = false;
+                Left = mousePosition.X - DragDelta.X; // BugFix Issue #6
+                Top = mousePosition.Y - DragDelta.Y;
+                _attachDrag = false;
 
         Logger.InfoFormat("2> Left {0:0.00} TOP {1:0.00}", Left, Top);
 

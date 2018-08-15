@@ -2201,11 +2201,11 @@ namespace Xceed.Wpf.AvalonDock
       return _autohideArea;
     }
 
-    internal void StartDraggingFloatingWindowForContent( LayoutContent contentModel,
-                                                         bool startDrag = true,
-                                                         Point dragDelta = default(Point))
-    {
-      if( !contentModel.CanFloat )
+        internal void StartDraggingFloatingWindowForContent(LayoutContent contentModel,
+                                                             bool startDrag = true,
+                                                             Point dragDelta = default(Point))
+        {
+            if ( !contentModel.CanFloat )
         return;
 
     Logger.InfoFormat("Start> contentModel Left {0:0.00} TOP {1:0.00}",
@@ -2324,7 +2324,8 @@ namespace Xceed.Wpf.AvalonDock
       } ), DispatcherPriority.Send );
     }
 
-    internal void StartDraggingFloatingWindowForPane( LayoutAnchorablePane paneModel )
+    internal void StartDraggingFloatingWindowForPane( LayoutAnchorablePane paneModel,
+                                                      Point dragDelta)
     {
       Logger.InfoFormat("_");
 
@@ -2398,7 +2399,8 @@ namespace Xceed.Wpf.AvalonDock
           fw as LayoutAnchorableFloatingWindow )
       {
         Width = fwWidth,
-        Height = fwHeight
+        Height = fwHeight,
+        DragDelta = dragDelta
       };
 
 

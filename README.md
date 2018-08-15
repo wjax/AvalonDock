@@ -19,40 +19,84 @@ My editor [Edi](https://github.com/Dirkster99/Edi) is based on AvlonDock.
 This repository contains a feature added fork from:
 https://github.com/xceedsoftware/wpftoolkit
 
-Get the latest Debug build from [Comtinues Integration](https://ci.appveyor.com/project/Dirkster99/AvalonDock/build/artifacts).
+Be sure to checkout the <a href="https://github.com/Dirkster99/AvalonDock/wiki">Wiki for more details</a>. The repository also contains a Log4Net branch for debugging interactive issues with a close enough branch. There are also Log4Net demo executables in the 3.4.01 realease for additional debugging fun.
 
-# Feature Added - Dark and Light Theme Samples
+Get the latest Debug build from [Continues Integration](https://ci.appveyor.com/project/Dirkster99/AvalonDock/build/artifacts).
 
-## VS2013 Dark
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/VS2013_Dark.png">
+# Feature Added - Dark and Light VS 2013 Theme
 
-## VS2013
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/VS2013.png">
+Please review the <a href="https://github.com/Dirkster99/AvalonDock/wiki">Project Wiki</a> to see more demo screenshots.
+All screenshots below are from the <a href="https://github.com/Dirkster99/MLib">MLib</a> based VS 2013 Dark (Accent Color Gold)/Light (Accent Color Blue) theme on Windows 10. Similar theming results should be possible with other theming libraries since the implementation follow these <a href="https://www.codeproject.com/Articles/1236588/File-System-Controls-in-WPF-Version-III">guidelines</a>.
 
-## Metro
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/Metro.png">
+The Docking Buttons are defined in XAML, which ensures a good looking image on all resolutions, even 4K or 8K, and enables us to color theme consistently with the Window 10 <b>Accent Color</b>.
 
-## ExpressionLight
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/ExpressionLight.png">
+<table width="100%">
+   <tr>
+      <td>Description</td>
+      <td>Dark</td>
+      <td>Light</td>
+   </tr>
+   <tr>
+      <td>Dock Document</td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Dark/DockDocument.png" width="400"></td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Light/DockDocument.png" width="400"></td>
+   </tr>
+   <tr>
+      <td>Dock Document</td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Dark/DockDocument_1.png" width="400"></td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Light/DockDocument_1.png" width="400"></td>
 
-## Expressiondark
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/Expressiondark.png">
-
-## Generic
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/Generic.png">
-
-## VS2010
-<img src="https://github.com/Dirkster99/Docu/blob/master/AvalonDock/Themes/VS2010.png">
+   </tr>
+   <tr>
+      <td>Dock Tool Window</td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Dark/DockToolWindow.png" width="400"></td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Light/DockToolWindow.png" width="400"></td>
+   </tr>
+   <tr>
+      <td>Document</td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Dark/Document.png" width="400"></td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Light/Document.png" width="400"></td>
+   </tr>
+   <tr>
+      <td>Tool Window</td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Dark/ToolWindow.png" width="400"></td>
+      <td><img src="https://raw.githubusercontent.com/Dirkster99/Docu/master/AvalonDock/VS2013/AD_MLib/Light/ToolWindow.png" width="400"></td>
+   </tr>
+</table>
 
 # Mile Stone History
+
+## Patch History for AvalonDock Version 3.4
+
+- <a href="https://github.com/xceedsoftware/wpftoolkit/commit/24ecc09cf35e7095ad02d0beecfd5bafd83d0658">Commit from xceedsoftware/wpftoolkit for Version 3.4</a>
+- <a href="https://github.com/Dirkster99/AvalonDock/commit/b6b8248cad226bc264855cdbd7e27b9c34303d71">Local Commit in master for Version 3.4</a>
+
+### Reapplied Fixes
+
+<b><a href="https://github.com/xceedsoftware/wpftoolkit/issues/1203">Fixed height of titles of floating windows #1203</a></b>
+
+- Turn Height into MinHeight <a href="https://github.com/Dirkster99/AvalonDock/commit/1c2163e03178ed1a0cc3fafc57d0119b3a238d4a">-&gt;</a>
+- Fix on UseLayoutRounding="True" <a href="https://github.com/Dirkster99/AvalonDock/commit/517ba40a63c7eaf080e1d95d65d28dd718fe4822">-&gt;</a>
+<a href="https://github.com/Dirkster99/AvalonDock/commit/b567265c48b54a3abe6352d4f29b8ca6289c3e54">Commit</a>
+
+<b><a href="https://github.com/xceedsoftware/wpftoolkit/pull/1311">System.InvalidOperationException when window docking #1311</a></b>
+   <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1310">Check before Close in InternalClose #1310</a>
+<a href="https://github.com/Dirkster99/AvalonDock/commit/ca7b02b76a430bb4b911d94f88c9136090f7690e">Commit</a>
+
+<b><a href="https://github.com/xceedsoftware/wpftoolkit/issues/1313">LayoutRoot doesn't notify change for Children or ChildrenCount #1313</a></b>
+<a href="https://github.com/Dirkster99/AvalonDock/commit/75b8b54a300c01dad731771e15cbce24d30b9012">Commit</a>
+
+- descendants of LayoutElement notify when their Children and ChildrenCount properties change
+
+- Fix for Issue <a href="https://github.com/Dirkster99/AvalonDock/issues/6">#6 Drag and Drop of Document or ToolWindow content does not always work on (scaled) 4K display</a>
+
+- Fix for Issue <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1360">#1360 Clear Bindings</a>
 
 ## Patch History for AvalonDock Version 3.3
 
 - (FIXED in 3.4) AvalonDock Bug after reloading layout <a href="https://github.com/Dirkster99/AvalonDock/wiki/(Fixed)-AvalonDock-Bug-after-reloading-layout">-&gt;</a>
 
 - (FIXED in 3.4) Save Tool Window to Bottom and Reload does not work <a href="https://github.com/Dirkster99/AvalonDock/wiki/AvalonDock-Bug2">-&gt;</a>
-
-- <a href="https://github.com/xceedsoftware/wpftoolkit/commit/24ecc09cf35e7095ad02d0beecfd5bafd83d0658">Commit Version 3.4</a>
 
 ## Patch History for AvalonDock Version 3.2
 
@@ -76,6 +120,4 @@ Get the latest Debug build from [Comtinues Integration](https://ci.appveyor.com/
 https://github.com/Dirkster99/AvalonDock/commit/4bcb07f45e89e416257e668a209b238a26e5f414
 
 in this repository was taken from the last Edi build: 131594
-http://edi.codeplex.com/releases/view/131594
-
-from CodePlex
+<a href="http://edi.codeplex.com/releases/view/131594">from CodePlex</a>
