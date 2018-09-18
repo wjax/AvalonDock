@@ -22,6 +22,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace AvalonDock.MVVMTestApp
 {
@@ -37,22 +38,22 @@ namespace AvalonDock.MVVMTestApp
             XmlConfigurator.Configure();   // Read Log4Net config from App.config file
             Logger = LogManager.GetLogger("default");
         }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Application.Current.DispatcherUnhandledException +=
+               new DispatcherUnhandledExceptionEventHandler(DispatcherUnhandledExceptionHandler);
+
+            base.OnStartup(e);
+        }
+
+        private void DispatcherUnhandledExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs args)
+        {
+            Logger.Error(args.Exception);
+
+            args.Handled = true;
+            // implement recovery
+            // execution will now continue...
+        }
     }
-    
-   protected override void OnStartup(StartupEventArgs e)
-   {
-      Application.Current.DispatcherUnhandledException +=
-         new DispatcherUnhandledExceptionEventHandler(DispatcherUnhandledExceptionHandler);
-
-      base.OnStartup(e);
-   }
-
-   void DispatcherUnhandledExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs args)
-   {
-      Logger.Error(args.Exception);
-      
-      args.Handled = true;
-      // implement recovery
-      // execution will now continue...
-   }
 }

@@ -25,6 +25,7 @@ using System.Windows.Input;
 using System.Diagnostics;
 using log4net.Config;
 using log4net;
+using System.Windows.Threading;
 
 namespace AvalonDock.TestApp
 {
@@ -41,6 +42,24 @@ namespace AvalonDock.TestApp
             Logger = LogManager.GetLogger("default");
 
             //Dispatcher.Thread.CurrentUICulture = new System.Globalization.CultureInfo("ru");
+        }
+
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Application.Current.DispatcherUnhandledException +=
+               new DispatcherUnhandledExceptionEventHandler(DispatcherUnhandledExceptionHandler);
+
+            base.OnStartup(e);
+        }
+
+        private void DispatcherUnhandledExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs args)
+        {
+            Logger.Error(args.Exception);
+
+            args.Handled = true;
+            // implement recovery
+            // execution will now continue...
         }
     }
 }
