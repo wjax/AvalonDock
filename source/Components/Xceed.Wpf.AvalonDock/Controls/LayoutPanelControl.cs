@@ -35,10 +35,10 @@ namespace Xceed.Wpf.AvalonDock.Controls
         : base( model, model.Orientation )
     {
       _model = model;
-
+      this.SizeChanged += LayoutPanelControl_SizeChanged;
     }
 
-    #endregion
+     #endregion
 
     #region Overrides
 
@@ -134,6 +134,16 @@ namespace Xceed.Wpf.AvalonDock.Controls
       #endregion
     }
 
+    private void LayoutPanelControl_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+      var modelWithActualSize = _model as ILayoutPositionableElementWithActualSize;
+      ////Console.WriteLine("LayoutPanelControl ActualSize {0},{1} -> {2},{3}",
+      ////    ActualWidth, ActualHeight, modelWithActualSize.ActualWidth, modelWithActualSize.ActualHeight);
+
+      modelWithActualSize.ActualWidth = ActualWidth;
+      modelWithActualSize.ActualHeight = ActualHeight;
+    }
+
     #endregion
-  }
+    }
 }

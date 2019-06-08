@@ -105,7 +105,7 @@
         private void OnDumpToConsole(object sender, RoutedEventArgs e)
         {
             // Show width and height of window in log
-            System.Diagnostics.Trace.WriteLine(string.Format("MainWindow ActualSize {0},{1},{2}",
+            System.Diagnostics.Trace.WriteLine(string.Format("MainWindow {0} | ActualSize {1},{2}",
                                                DateTime.Now, this.ActualWidth, this.ActualHeight));
 
             // Uncomment when TRACE is activated on AvalonDock project

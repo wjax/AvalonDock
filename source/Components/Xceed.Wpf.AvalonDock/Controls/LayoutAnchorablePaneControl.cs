@@ -47,14 +47,14 @@ namespace Xceed.Wpf.AvalonDock.Controls
       SetBinding( ItemsSourceProperty, new Binding( "Model.Children" ) { Source = this } );
       SetBinding( FlowDirectionProperty, new Binding( "Model.Root.Manager.FlowDirection" ) { Source = this } );
 
-      this.LayoutUpdated += new EventHandler( OnLayoutUpdated );
+      this.SizeChanged += LayoutAnchorablePaneControl_SizeChanged;
     }
 
     #endregion
 
     #region Properties
 
-    public ILayoutElement Model
+        public ILayoutElement Model
     {
       get
       {
@@ -95,11 +95,14 @@ namespace Xceed.Wpf.AvalonDock.Controls
 
     #region Private Methods
 
-    private void OnLayoutUpdated( object sender, EventArgs e )
+    private void LayoutAnchorablePaneControl_SizeChanged(object sender, SizeChangedEventArgs e)
     {
-      var modelWithAtcualSize = _model as ILayoutPositionableElementWithActualSize;
-      modelWithAtcualSize.ActualWidth = ActualWidth;
-      modelWithAtcualSize.ActualHeight = ActualHeight;
+        var modelWithActualSize = _model as ILayoutPositionableElementWithActualSize;
+        ////Console.WriteLine("LayoutAnchorablePaneControl ActualSize {0},{1} -> {2},{3}",
+        ////    ActualWidth, ActualHeight, modelWithActualSize.ActualWidth, modelWithActualSize.ActualHeight);
+
+        modelWithActualSize.ActualWidth = ActualWidth;
+        modelWithActualSize.ActualHeight = ActualHeight;
     }
 
     #endregion
