@@ -203,10 +203,18 @@ namespace Xceed.Wpf.AvalonDock.Layout
         public override void ConsoleDump(int tab)
         {
           System.Diagnostics.Trace.Write( new string( ' ', tab * 4 ) );
-          System.Diagnostics.Trace.WriteLine( "DocumentPane()" );
+
+          var modelWithActcualSize = this as ILayoutPositionableElementWithActualSize;
+          if (modelWithActcualSize != null)
+          {
+            System.Diagnostics.Trace.WriteLine(string.Format("DocumentPane(ActualSize {0},{1})",
+                                               modelWithActcualSize.ActualWidth, modelWithActcualSize.ActualHeight));
+          }
+          else
+            System.Diagnostics.Trace.WriteLine("DocumentPane()");
 
           foreach (LayoutElement child in Children)
-              child.ConsoleDump(tab + 1);
+            child.ConsoleDump(tab + 1);
         }
 #endif
 

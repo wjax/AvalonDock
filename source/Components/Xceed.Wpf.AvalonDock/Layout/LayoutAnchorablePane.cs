@@ -235,7 +235,15 @@ namespace Xceed.Wpf.AvalonDock.Layout
         public override void ConsoleDump(int tab)
         {
           System.Diagnostics.Trace.Write( new string( ' ', tab * 4 ) );
-          System.Diagnostics.Trace.WriteLine( "AnchorablePane()" );
+
+          var modelWithActcualSize = this as ILayoutPositionableElementWithActualSize;
+          if (modelWithActcualSize != null)
+          {
+              System.Diagnostics.Trace.WriteLine(string.Format("AnchorablePane(ActualSize {0},{1})",
+                                                 modelWithActcualSize.ActualWidth, modelWithActcualSize.ActualHeight));
+          }
+          else
+            System.Diagnostics.Trace.WriteLine( "AnchorablePane()" );
 
           foreach (LayoutElement child in Children)
               child.ConsoleDump(tab + 1);

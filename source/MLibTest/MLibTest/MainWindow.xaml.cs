@@ -104,7 +104,7 @@
         private void OnDumpToConsole(object sender, RoutedEventArgs e)
         {
             // Uncomment when TRACE is activated on AvalonDock project
-            //dockManager.Layout.ConsoleDump(0);
+            dockManager.Layout.ConsoleDumpLayoutRoot(0, this);
         }
     }
 }

@@ -351,6 +351,16 @@ namespace Xceed.Wpf.AvalonDock.Layout
     #region Overrides
 
 #if TRACE
+        public void ConsoleDumpLayoutRoot(int tab, Window win)
+        {
+            // Show width and height of window in log
+            System.Diagnostics.Trace.WriteLine(string.Format("MainWindow ActualSize {0},{1}",
+                                               win.ActualWidth, win.ActualHeight));
+
+            // Show all other items at LayoutRoot RootPanel level
+            ConsoleDump(tab);
+        }
+
         public override void ConsoleDump(int tab)
         {
           System.Diagnostics.Trace.Write( new string( ' ', tab * 4 ) );
