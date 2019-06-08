@@ -2,6 +2,7 @@
 {
     using MLibTest.ViewModels.Base;
     using Settings.UserProfile;
+    using System;
     using System.Diagnostics;
     using System.Windows;
     using System.Windows.Input;
@@ -103,8 +104,12 @@
 
         private void OnDumpToConsole(object sender, RoutedEventArgs e)
         {
+            // Show width and height of window in log
+            System.Diagnostics.Trace.WriteLine(string.Format("MainWindow ActualSize {0},{1},{2}",
+                                               DateTime.Now, this.ActualWidth, this.ActualHeight));
+
             // Uncomment when TRACE is activated on AvalonDock project
-            dockManager.Layout.ConsoleDumpLayoutRoot(0, this);
+            dockManager.Layout.ConsoleDump(0);
         }
     }
 }
