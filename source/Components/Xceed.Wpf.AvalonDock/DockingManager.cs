@@ -2378,6 +2378,8 @@ namespace Xceed.Wpf.AvalonDock
         if( IsVisible )
           CreateOverlayWindow();
         FocusElementManager.SetupFocusManagement( this );
+
+        this.SizeChanged += DockingManager_SizeChanged;
       }
     }
 
@@ -3454,6 +3456,11 @@ namespace Xceed.Wpf.AvalonDock
           yield return anchorable;
         }
       }
+    }
+
+    private void DockingManager_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+      Console.WriteLine("DockingManager ActualSize {0},{1}", ActualWidth, ActualHeight);
     }
     #endregion
   }

@@ -72,8 +72,8 @@ namespace Xceed.Wpf.AvalonDock.Controls
     private void LayoutAnchorablePaneGroupControl_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         var modelWithActualSize = _model as ILayoutPositionableElementWithActualSize;
-        System.Console.WriteLine("LayoutAnchorablePaneGroup ActualSize {0},{1} -> {2},{3}",
-            ActualWidth, ActualHeight, modelWithActualSize.ActualWidth, modelWithActualSize.ActualHeight);
+        ////System.Console.WriteLine("LayoutAnchorablePaneGroup ActualSize {0},{1} -> {2},{3}",
+        ////    ActualWidth, ActualHeight, modelWithActualSize.ActualWidth, modelWithActualSize.ActualHeight);
 
         modelWithActualSize.ActualWidth = ActualWidth;
         modelWithActualSize.ActualHeight = ActualHeight;
