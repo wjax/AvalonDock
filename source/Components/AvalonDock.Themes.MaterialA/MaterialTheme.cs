@@ -1,4 +1,4 @@
-﻿/*************************************************************************************
+/*************************************************************************************
 
    Extended WPF Toolkit
 
@@ -14,9 +14,20 @@
 
   ***********************************************************************************/
 
-internal static class _XceedVersionInfoCommon
-{
-[System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields" )]
-  public const string Build = ".*";
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
+namespace AvalonDock.Themes
+{
+    public class MaterialTheme : Theme
+    {
+        public override Uri GetResourceUri()
+        {
+            return new Uri(
+                "/AvalonDock.Themes.Material;component/Theme.xaml", 
+                UriKind.Relative);  
+        }
+    }
 }

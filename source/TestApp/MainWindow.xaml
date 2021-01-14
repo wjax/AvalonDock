@@ -16,7 +16,7 @@
 	xmlns:avalonDock="https://github.com/Dirkster99/AvalonDock"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:TestApp"
-	xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+	xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" xmlns:themes="clr-namespace:AvalonDock.Themes;assembly=AvalonDock.Themes.Material"
 	Title="MainWindow"
 	Width="525"
 	Height="350"
@@ -69,7 +69,8 @@
 			IsVirtualizingAnchorable="True"
 			IsVirtualizingDocument="True">
 			<DockingManager.Theme>
-				<Vs2013LightTheme />
+				<themes:MaterialTheme />
+				<!--<Vs2013LightTheme/>-->
 			</DockingManager.Theme>
 			<DockingManager.DocumentHeaderTemplate>
 				<DataTemplate>
