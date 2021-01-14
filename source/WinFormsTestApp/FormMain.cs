@@ -1,28 +1,14 @@
-﻿/************************************************************************
-
-   AvalonDock
-
-   Copyright (C) 2007-2013 Xceed Software Inc.
-
-   This program is provided to you under the terms of the New BSD
-   License (BSD) as published at http://avalondock.codeplex.com/license 
-
-   For more features, controls, and fast professional support,
-   pick up AvalonDock in Extended WPF Toolkit Plus at http://xceed.com/wpf_toolkit
-
-   Stay informed: follow @datagrid on Twitter or Like facebook.com/datagrids
-
-  **********************************************************************/
-
-namespace AvalonDock.WinFormsTestApp
+﻿namespace AvalonDock.WinFormsTestApp
 {
     using System;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
     using System.Windows.Forms;
-    using Xceed.Wpf.AvalonDock;
-    using Xceed.Wpf.AvalonDock.Layout;
-    using Xceed.Wpf.AvalonDock.Layout.Serialization;
-    using Xceed.Wpf.AvalonDock.Themes;
+    using AvalonDock;
+    using AvalonDock.Layout;
+    using AvalonDock.Layout.Serialization;
+    using AvalonDock.Themes;
 
     public partial class FormMain : Form
     {
@@ -51,9 +37,18 @@ namespace AvalonDock.WinFormsTestApp
 
                 };
 
-            serializer.Deserialize(
-                new System.IO.StringReader(
-                AvalonDock.WinFormsTestApp.Properties.Settings.Default.DefaultLayout));
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "WinFormsTestApp.DefaultLayout.xml";
+
+            string result = string.Empty;
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                result = reader.ReadToEnd();
+            }
+
+            serializer.Deserialize(new System.IO.StringReader(result));
 
             LayoutDocument doc = new LayoutDocument() { Title = "test" };
             _dockingManager.Layout.Descendents().OfType<LayoutDocumentPane>().First().Children.Add(doc);
@@ -65,43 +60,49 @@ namespace AvalonDock.WinFormsTestApp
 
         private void menuItemVS2010_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.VS2010Theme();
+            _dockingManager.Theme = new AvalonDock.Themes.VS2010Theme();
             this.SetChecked(menuItemVS2010);
         }
 
         private void menuItemMetro_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.MetroTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.MetroTheme();
             this.SetChecked(menuItemMetro);
         }
 
         private void menuItemGeneric_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.GenericTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.GenericTheme();
             this.SetChecked(menuItemGeneric);
         }
 
         private void menuItemExpressionDark_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.ExpressionDarkTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.ExpressionDarkTheme();
             this.SetChecked(menuItemExpressionDark);
         }
 
         private void menuItemExpressionLight_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.ExpressionLightTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.ExpressionLightTheme();
             this.SetChecked(menuItemExpressionLight);
         }
 
         private void vS2013ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.Vs2013LightTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.Vs2013LightTheme();
             this.SetChecked(menuItemVs2013);
         }
 
         private void menuItemAero_Vs2013Dark(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.Vs2013DarkTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.Vs2013DarkTheme();
+            this.SetChecked(menuItemVS2013Dark);
+        }
+
+        private void menuItemAero_Vs2013Blue(object sender, EventArgs e)
+        {
+            _dockingManager.Theme = new AvalonDock.Themes.Vs2013BlueTheme();
             this.SetChecked(menuItemVS2013Dark);
         }
 
@@ -118,7 +119,7 @@ namespace AvalonDock.WinFormsTestApp
 
         private void menuItemAero_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new Xceed.Wpf.AvalonDock.Themes.AeroTheme();
+            _dockingManager.Theme = new AvalonDock.Themes.AeroTheme();
             this.SetChecked(menuItemAero);
         }
     }

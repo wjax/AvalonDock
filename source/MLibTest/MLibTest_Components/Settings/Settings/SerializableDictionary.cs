@@ -16,10 +16,10 @@
 	[Serializable]
 	public class SerializableDictionary<TKey, TVal> : Dictionary<TKey, TVal>, IXmlSerializable, ISerializable
 	{
-		#region Private Members
+		#region fields
 		private XmlSerializer _keySerializer;
 		private XmlSerializer _valueSerializer;
-		#endregion
+		#endregion fields
 
 		#region Constructors
 		public SerializableDictionary()
@@ -56,12 +56,12 @@
 		#region Private Properties
 		protected XmlSerializer ValueSerializer
 		{
-			get { return _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof(TVal))); }
+			get => _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof(TVal)));
 		}
 
 		private XmlSerializer KeySerializer
 		{
-			get { return _keySerializer ?? (_keySerializer = new XmlSerializer(typeof(TKey))); }
+			get => _keySerializer ?? (_keySerializer = new XmlSerializer(typeof(TKey)));
 		}
 		#endregion
 

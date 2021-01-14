@@ -75,8 +75,8 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MLib, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Dirkster.MLib.1.0.10\lib\net4\MLib.dll</HintPath>
+    <Reference Include="MLib, Version=1.3.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Dirkster.MLib.1.3.1.2\lib\net40\MLib.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -106,13 +106,16 @@
     <Compile Include="UserProfile\ViewSize.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SettingsModel\SettingsModel.csproj">
-      <Project>{9b0ba841-5a2f-4ed3-a908-253dbca70e77}</Project>
-      <Name>SettingsModel</Name>
-    </ProjectReference>
+    <None Include="..\..\..\..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\SettingsModel\SettingsModel.csproj">
+      <Project>{8a6923bd-563b-4258-b4e6-ad651bbf1962}</Project>
+      <Name>SettingsModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

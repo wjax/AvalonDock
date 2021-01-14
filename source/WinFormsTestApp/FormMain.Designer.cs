@@ -1,20 +1,4 @@
-﻿/************************************************************************
-
-   AvalonDock
-
-   Copyright (C) 2007-2013 Xceed Software Inc.
-
-   This program is provided to you under the terms of the New BSD
-   License (BSD) as published at http://avalondock.codeplex.com/license 
-
-   For more features, controls, and fast professional support,
-   pick up AvalonDock in Extended WPF Toolkit Plus at http://xceed.com/wpf_toolkit
-
-   Stay informed: follow @datagrid on Twitter or Like facebook.com/datagrids
-
-  **********************************************************************/
-
-namespace AvalonDock.WinFormsTestApp
+﻿namespace AvalonDock.WinFormsTestApp
 {
     partial class FormMain
     {
@@ -54,6 +38,7 @@ namespace AvalonDock.WinFormsTestApp
             this.menuItemExpressionLight = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemVs2013 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemVS2013Dark = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemVS2013Blue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAero = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +76,7 @@ namespace AvalonDock.WinFormsTestApp
             this.menuItemExpressionLight,
             this.menuItemVs2013,
             this.menuItemVS2013Dark,
+            this.menuItemVS2013Blue,
             this.menuItemAero});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
             this.themeToolStripMenuItem.Size = new System.Drawing.Size(121, 48);
@@ -147,6 +133,13 @@ namespace AvalonDock.WinFormsTestApp
             this.menuItemVS2013Dark.Text = "VS 2013 Dark";
             this.menuItemVS2013Dark.Click += new System.EventHandler(this.menuItemAero_Vs2013Dark);
             // 
+            // menuItemVS2013Blue
+            // 
+            this.menuItemVS2013Blue.Name = "menuItemVS2013Blue";
+            this.menuItemVS2013Blue.Size = new System.Drawing.Size(396, 46);
+            this.menuItemVS2013Blue.Text = "VS 2013 Blue";
+            this.menuItemVS2013Blue.Click += new System.EventHandler(this.menuItemAero_Vs2013Blue);
+            // 
             // menuItemAero
             // 
             this.menuItemAero.Name = "menuItemAero";
@@ -178,6 +171,7 @@ namespace AvalonDock.WinFormsTestApp
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemVS2013Dark;
+        private System.Windows.Forms.ToolStripMenuItem menuItemVS2013Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemVS2010;
         private System.Windows.Forms.ToolStripMenuItem menuItemGeneric;
         private System.Windows.Forms.ToolStripMenuItem menuItemExpressionDark;

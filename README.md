@@ -1,19 +1,35 @@
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.svg)](http://nuget.org/packages/Dirkster.AvalonDock) | AvalonDock |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Aero.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Aero)              | AvalonDock.Themes.Aero            |
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Expression.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Expression)  | AvalonDock.Themes.Expression      |
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Metro.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Metro)            | AvalonDock.Themes.Metro           |
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2010.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2010)          | Dirkster.AvalonDock.Themes.VS2010 |
-| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2013.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2013)          | [Dirkster.AvalonDock.Themes.VS2013](https://github.com/Dirkster99/AvalonDock/wiki/WPF-VS-2013-Dark-Light-Demo-Client) |
+| Downloads                                                                                                                                               | NuGet Packages
+| :------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.svg)](http://nuget.org/packages/Dirkster.AvalonDock)                                      | [Dirkster.AvalonDock](http://nuget.org/packages/Dirkster.AvalonDock)
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Aero.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Aero)              | [Dirkster.AvalonDock.Themes.Aero](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Aero)
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Expression.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Expression)  | [Dirkster.AvalonDock.Themes.Expression](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Expression)
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.Metro.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Metro)            | [Dirkster.AvalonDock.Themes.Metro](http://nuget.org/packages/Dirkster.AvalonDock.Themes.Metro)
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2010.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2010)          | [Dirkster.AvalonDock.Themes.VS2010](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2010)
+| [![NuGet](https://img.shields.io/nuget/dt/Dirkster.AvalonDock.Themes.VS2013.svg)](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2013)          | [Dirkster.AvalonDock.Themes.VS2013](http://nuget.org/packages/Dirkster.AvalonDock.Themes.VS2013) (see [Wiki](https://github.com/Dirkster99/AvalonDock/wiki/WPF-VS-2013-Dark-Light-Demo-Client) )
+
+![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4/blue) ![NetCore3](https://badgen.net/badge/Framework/NetCore&nbsp;3/blue)
 
 ## Master Branch
-[![Build status](https://ci.appveyor.com/api/projects/status/kq2wyupx5hm7fok2/branch/master?svg=true)](https://ci.appveyor.com/project/Dirkster99/avalondock/branch/master)[![Release](https://img.shields.io/github/release/Dirkster99/avalondock.svg)](https://github.com/Dirkster99/avalondock/releases/latest)&nbsp;[Continues Integration](https://ci.appveyor.com/project/Dirkster99/AvalonDock/build/artifacts)
+[![Build status](https://ci.appveyor.com/api/projects/status/kq2wyupx5hm7fok2/branch/master?svg=true)](https://ci.appveyor.com/project/Dirkster99/avalondock/branch/master)[![Release](https://img.shields.io/github/release/Dirkster99/avalondock.svg)](https://github.com/Dirkster99/avalondock/releases/latest)&nbsp;[Continuous Integration](https://ci.appveyor.com/project/Dirkster99/AvalonDock/build/artifacts)
 
+<a href="https://github.com/Dirkster99/AvalonDock/issues">
+    <img src="https://img.shields.io/github/issues-raw/Dirkster99/AvalonDock.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/Dirkster99/AvalonDock/issues">
+    <img src="https://img.shields.io/github/issues-closed-raw/Dirkster99/AvalonDock.svg?style=flat-square">
+  </a><br/>
+
+<a href="https://github.com/Dirkster99/AvalonDock/issues">
+    <img src="https://img.shields.io/github/issues-pr-raw/Dirkster99/AvalonDock.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/Dirkster99/AvalonDock/issues">
+    <img src="https://img.shields.io/github/issues-pr-closed-raw/Dirkster99/AvalonDock.svg?style=flat-square">
+  </a>
+  
 # AvalonDock
-
 Support this project with a :star: -report an issue, or even better, place a pull request :mailbox: :blush:
 
-My projects <a href="https://dirkster99.github.io/Edi/">Edi</a> and <a href="https://github.com/Dirkster99/Aehnlich">Aehnlich</a> are powered by this project.
+My projects <a href="https://dirkster99.github.io/Edi/">Edi</a>, <a href="https://github.com/Dirkster99/Aehnlich">Aehnlich</a>, and [many others](https://github.com/search?p=4&q=%22dirkster.avalondock%22&type=Code) (open source or commercial) are powered by this project.
 
 AvalonDock is a WPF Document and Tool Window layout container that is used to arrange documents
 and tool windows in similar ways than many well known IDEs, such as, Eclipse, Visual Studio,
@@ -25,10 +41,17 @@ PhotoShop and so forth. Here are some CodeProject articles:
 * [AvalonDock [2.0] Tutorial Part 4 - Integrating AvalonEdit Options](https://www.codeproject.com/Articles/570324/AvalonDock-Tutorial-Part-Integrating-AvalonE)
 * [AvalonDock [2.0] Tutorial Part 5 - Load/Save Layout with De-Referenced DockingManager](https://www.codeproject.com/Articles/719143/AvalonDock-Tutorial-Part-Load-Save-Layout)
 
-This repository contains **additional bug fixes and a feature added** fork from:
-https://github.com/xceedsoftware/wpftoolkit
+This repository contains **additional bug fixes and a feature added** fork for:
+xceedsoftware/wpftoolkit version **3.2-3.6**. Version 4.0 and later are developed indepentently, which is why this library (version 4.0 and later) uses the namespaces and library names that were used in AvalonDock 2.0 and earlier versions. But most importantly, the usage of this AvalonDock project remains free for both, commercial and open source users.
 
-Be sure to checkout the <a href="https://github.com/Dirkster99/AvalonDock/wiki">Wiki for more details</a>. The repository also contains a Log4Net branch for debugging interactive issues with a close enough branch. There are also Log4Net demo executables in the 3.4.01 (or later) realease for additional debugging fun.
+There is also an open source repository https://github.com/dotnetprojects/WpfExtendedToolkit with a fixed and stable version of all other (other than AvalonDock) components from the WPFToolKit.
+
+Be sure to checkout the <a href="https://github.com/Dirkster99/AvalonDock/wiki">Wiki for more details</a>.
+
+## Building AvalonDock from Source
+
+This project supports multitargeting frameworks (NetCore 3 and .Net 4). This means that it requires
+Visual Studio Community 2019 or better to build.
 
 # Feature Added - Dark and Light VS 2013 Theme
 
@@ -73,18 +96,18 @@ The Docking Buttons are [defined in XAML](https://github.com/Dirkster99/AvalonDo
 
 ## Theming
 
-Using the *Xceed.Wpf.AvalonDock.Themes.VS2013* theme is very easy with *Dark* and *Light* themes.
+Using the *AvalonDock.Themes.VS2013* theme is very easy with *Dark* and *Light* themes.
 Just load *Light* or *Dark* brush resources in you resource dictionary to take advantage of existing definitions.
 
 ```XAML
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Xceed.Wpf.AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkBrushs.xaml" />
     </ResourceDictionary.MergedDictionaries>
 ```
 
 ```XAML
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Xceed.Wpf.AvalonDock.Themes.VS2013;component/LightBrushs.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/LightBrushs.xaml" />
     </ResourceDictionary.MergedDictionaries>
 ```
 
@@ -97,174 +120,106 @@ to also theme standard elements, such as, button and textblock etc.
 
 # Mile Stone History
 
-## Patch History for AvalonDock Version 3.5
+## Fixes added in master branch but not released to NuGet. yet
 
-## In Master branch but not released, yet
+- [#221 Default window style interfere with resizer window](https://github.com/Dirkster99/AvalonDock/issues/221) (thanx to [Magnus Lindhe](https://github.com/mgnslndh))
+- [#224 Reverted Fixed a bug that freezed when changing DocumentPane Orientation](https://github.com/Dirkster99/AvalonDock/pull/224) (thanx to [sukamoni](https://github.com/sukamoni))  
+  See pull request for issues with this PR
 
-1) Small breaking change in [Dirkster.AvalonDock.Themes.VS2013](https://github.com/Dirkster99/AvalonDock/wiki/WPF-VS-2013-Dark-Light-Demo-Client), Renamed DockingButtonForegroundArrowBrusKey to DockingButtonForegroundArrowBrushKey (thanx to [VNNCC](https://github.com/VNNCC))  
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/52)
+## Fixes added in Version 4.50.1
 
-2) Fix on FloatingWindow visibility when loading/unloading DockingManager control (thanx to [scdmitryvodich](https://github.com/scdmitryvodich))  
-   - [@dirkster #51](https://github.com/Dirkster99/AvalonDock/pull/51) related to [#36](https://github.com/Dirkster99/AvalonDock/pull/36)
+- [#210 LayoutAnchorable with CanDockAsTabbedDocument="False" docks to LayoutDocumentPane when Pane is empty](https://github.com/Dirkster99/AvalonDock/issues/210) (thanx to [Łukasz Holetzke](https://github.com/goldie83))
+- [#195 DocumentClosed event issue](https://github.com/Dirkster99/AvalonDock/issues/195) (thanx to [Skaptor](https://github.com/Skaptor))
+- [#205 Fix issue where the ActiveContent binding doesn't update two ways when removing a document.](https://github.com/Dirkster99/AvalonDock/pull/205) (thanx to [PatrickHofman](https://github.com/PatrickHofman))
 
-## Fixes in Version 3.5.8
+## Fixes added in Version 4.5
 
-1) Added [ca-es localization](https://github.com/Dirkster99/AvalonDock/wiki/Localization). Updated [es localization](https://github.com/Dirkster99/AvalonDock/wiki/Localization). (thanx to [xnaval](https://github.com/xnaval))  
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/40)
+- [#199 Add to LayoutDocument CanHide property returning false](https://github.com/Dirkster99/AvalonDock/pull/199) (thanx to [bdachev](https://github.com/bdachev))
+- [#138 Trying dock a floating window inside a document pane leads to its disappearing of window's content.](https://github.com/Dirkster99/AvalonDock/pull/138) (thanx to [cuellius](https://github.com/https://github.com/cuellius))
+- [#197 [Bug] Tabs start getting dragged around if visual tree load times are too high](https://github.com/Dirkster99/AvalonDock/pull/138) (thanx to [X39](https://github.com/https://github.com/X39))
+- [Bug fix for issue #194 App doesn't close after LayoutAnchorable AutoHide and docking it again](https://github.com/Dirkster99/AvalonDock/pull/203) (thanx to [sphet](https://github.com/https://github.com/sphet))
 
-2) Fix Visibility issue on closing LayoutFloatingWindowControl (thanx to [scdmitryvodich](https://github.com/scdmitryvodich))  
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/44)
+## Fixes & Features added in Version 4.4
 
-3) Adding support for Japanes, Korean, and Polish  
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/45)
+- [#182 CanClose property of new LayoutAnchorableItem is different from its LayoutAnchorable](https://github.com/Dirkster99/AvalonDock/pull/183)  (thanx to [skyneps](https://github.com/skyneps))
+- [#184 All documents disappear if document stops close application in Caliburn.Micro](https://github.com/Dirkster99/AvalonDock/issues/184)  (thanx to [ryanvs](https://github.com/ryanvs))
 
-4) [#42](https://github.com/Dirkster99/AvalonDock/issues/42) Fix Dispatcher Suspend Exception issue (thanx to [vkotenev-sc](https://github.com/vkotenev-sc), [scdmitryvodich](https://github.com/scdmitryvodich))  
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/43)  
-  
-    [#46](https://github.com/Dirkster99/AvalonDock/pull/46) Check if we are not on the UI thread before doing Dispatcher.Invoke (thanx to  [dgosbell](https://github.com/dgosbell), [vkotenev-sc](https://github.com/vkotenev-sc))
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/46) (related to [#42](https://github.com/Dirkster99/AvalonDock/issues/42)) 
+- Thanx to [bdachev](https://github.com/bdachev):  
+  - [#186 Raise PropertyChanged notification when LayoutContent.IsFloating changes](https://github.com/Dirkster99/AvalonDock/pull/186) (ensure change of the [IsFloating](https://github.com/Dirkster99/AvalonDock/wiki/LayoutContent#properties) property when the Documents state changes)  
+  - [#187 Allow to serialize CanClose if set to true for LayoutAnchorable instance](https://github.com/Dirkster99/AvalonDock/pull/187)  
+  - [#188 Handle CanClose and CanHide in XAML](https://github.com/Dirkster99/AvalonDock/pull/188)  
+  - [#190 Added additional check in LayoutGridControl.UpdateRowColDefinitions to avoid exception.](https://github.com/Dirkster99/AvalonDock/pull/190)  
+  - [#192 Default MenuItem style not changed by VS2013 Theme](https://github.com/Dirkster99/AvalonDock/pull/192)
 
-## Fixes in Version 3.5.7
 
-1) Fix Visibility issues in LayoutFloatingWindowControl (thanx to [scdmitryvodich](https://github.com/scdmitryvodich)) 
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/36) see also [#51](https://github.com/Dirkster99/AvalonDock/pull/51) in later version
+- Removed the additional [ToolTip](https://github.com/Dirkster99/AvalonDock/commit/5554de5c4bfadc37f974ba29803dc792b54f00d0) and [ContextMenu](https://github.com/Dirkster99/AvalonDock/commit/103e1068bc9f5bae8fef275a0e785393b4115764) styles from the Generic.xaml in VS2013 [more details here](https://github.com/Dirkster99/AvalonDock/pull/170#issuecomment-674253874)
+- [#189 Removal of DictionaryTheme breaks my application](https://github.com/Dirkster99/AvalonDock/issues/189)  (thanx to [hamohn](https://github.com/hamohn))
 
-2) Fixed sizing behavior of anchorable panels (thanx to [scdmitryvodich](https://github.com/scdmitryvodich)) 
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/37) [Issue 37](https://github.com/Dirkster99/AvalonDock/issues/37)  
-  [@dirkster](https://github.com/Dirkster99/AvalonDock/commit/ee4c8c9a5d25a54562089469754094f21af6cd34)
-  
-## Fixes in Version 3.5.6
+## Fixes & Features added in Version 4.3
 
-1) Check in LayoutAnchorable Hide method to avoid null reference exception (thanx to [gpetrou](https://github.com/gpetrou)) 
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/32)
+- Localized labels in [NavigatorWindow](https://github.com/Dirkster99/AvalonDock/wiki/NavigatorWindow)
 
-2) Check if current application is not null in FocusElementManager (thanx to [gpetrou](https://github.com/gpetrou)) 
-   - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/33)
+- [#170 Several Improvements](https://github.com/Dirkster99/AvalonDock/pull/170) (thanx to [刘晓青 LyonJack](https://github.com/LyonJack))  
+  - Improved VS 2013 Theme and ease of reusing controls  
+  - [Fix Issue #85 Floating Window Title Flashing](https://github.com/Dirkster99/AvalonDock/issues/85)  
+  - [Fix Issue #71 Hiding and showing anchorable in document's pane throws an exception](https://github.com/Dirkster99/AvalonDock/issues/71)  
+  - [Fix Issue #135 ActiveContent not switching correctly for floating window](https://github.com/Dirkster99/AvalonDock/issues/135)  
+  - [Fix Issue #165 ActiveContent not stable](https://github.com/Dirkster99/AvalonDock/issues/165)  
+  - [Fix Issue #171 LayoutDocument leaks on close](https://github.com/Dirkster99/AvalonDock/issues/171)  
+  - **Breaking Change**  
+    [Fix Issue #174 The SetWindowSizeWhenOpened Feature is broken](https://github.com/Dirkster99/AvalonDock/issues/174)
+  - [Fix Issue #177 ToolBar TabItem color error](https://github.com/Dirkster99/AvalonDock/issues/177)
 
-3) Issue solved: Use [localized](https://github.com/Dirkster99/AvalonDock/wiki/Localization) resource instead of constant string in [VS 2013 Theme](https://github.com/Dirkster99/AvalonDock/wiki/WPF-VS-2013-Dark-Light-Demo-Client) (thanx to [RohanTPillai](https://github.com/RohanTPillai))
+- [#59 InvalidOperationException when deserializing layout](https://github.com/Dirkster99/AvalonDock/issues/59#issuecomment-642934204)
 
-### Fixes in Version 3.5.5
+- [#136 Layout "locking" method for Anchorables (tool windows) Part II via Style of LayoutAnchorableItem](https://github.com/Dirkster99/AvalonDock/issues/136)
 
-1) Improved 2nd Monitor display with maximized Layoutanchorable (toolwindow) and mutliple docked toolwindows inside (thanks to [mbullock976](https://github.com/mbullock976) for testing [Issues #27](https://github.com/Dirkster99/AvalonDock/issues/27))
+- [#136 Layout "locking" method for Anchorables (tool windows) Part III Added CanDock for LayoutAnchorable and LayoutDocument](https://github.com/Dirkster99/AvalonDock/issues/136)
+    [commit 6b611fa7fdce4f6dcfed1cf00c3b9193000ffe16](https://github.com/Dirkster99/AvalonDock/commit/6b611fa7fdce4f6dcfed1cf00c3b9193000ffe16)
 
-2) Bug fix on crash with FloatingLayoutanchorable (floating toolwindow) for [Issues #28](https://github.com/Dirkster99/AvalonDock/issues/28)
-  - [@dirkster](https://github.com/Dirkster99/AvalonDock/pull/31)
+- [#169 - Autohide LayoutAnchorable causes CPU load on idle](https://github.com/Dirkster99/AvalonDock/issues/169)
 
-### Fixes in Version 3.5.4
+## Fixes & Features  added in Version 4.2
 
-1) BugFix Hidden anchorable cannot be shown again (Issue [#19](https://github.com/Dirkster99/AvalonDock/issues/19))
-   - Plus start of Test Automation Client (thanx to [cswangrf](https://github.com/cswangrf))
-   - <a href="https://github.com/Dirkster99/AvalonDock/commit/c1e5893827493c7b82cd0ae7f4d1395a0a5056f1">@Dirkster99</a>
+- [#136 Layout "locking" method for Anchorables (tool windows)](https://github.com/Dirkster99/AvalonDock/issues/136)
 
-2) <a href="https://github.com/Dirkster99/AvalonDock/wiki/CanDockAsTabbedDocument">CanDockAsTabbedDocument</a> (Added drag & drop support of LayoutAnchorable)
-   (Issue [#18](https://github.com/Dirkster99/AvalonDock/issues/18))
-   - <a href="https://github.com/Dirkster99/AvalonDock/commit/c1e5893827493c7b82cd0ae7f4d1395a0a5056f1">@Dirkster99</a>
+- [# 159 Docking manager in TabControl can cause InvalidOperationException](https://github.com/Dirkster99/AvalonDock/issues/159)
 
-3) Improved support for <a href="https://github.com/Dirkster99/AvalonDock/wiki/LayoutAnchorableFloatingWindow">LayoutAnchorableFloatingWindow</a> (floating tool window) on 2nd screen (Issue [#20](https://github.com/Dirkster99/AvalonDock/issues/20))
-   - Added Reload of floating LayoutAnchable when maximized on 2nd screen
-   - Added repositioning of floating LayoutAnchable when:
-     - 2nd Monitor is not available or
-     - changed resolution puts floating LayoutAnchable out of bounds
-   - (thanx to [madenaras](https://github.com/madenaras))
-   - <a href="https://github.com/Dirkster99/AvalonDock/commit/3522efc2c15d6521440e80936fcfcf4ad383fd19">@Dirkster99</a>
+- [# 151 Model.Root.Manager may be null in LayoutDocumentTabItem](https://github.com/Dirkster99/AvalonDock/issues/151) Thanx to [scdmitryvodich](https://github.com/scdmitryvodich)
 
-4) Added [zh-Hant](https://github.com/Dirkster99/AvalonDock/wiki/Localization) localization (thanx to [nuthrash](https://github.com/nuthrash)
+## Fixes & Features  added in Version 4.1
 
-### Fixed Crash on IsSelected Document Property
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1481">#1481</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/fabbd218beaa996a3176d39b698ce1990bdd9254">@Dirkster99</a>
-Also Increased to Version 3.5.3.
+- [Fix #137 BindingExpression in VS2013 theme](https://github.com/Dirkster99/AvalonDock/issues/137)
 
-### Fixed Issue about PanesTemplateSelector being ignored
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1440">#1440</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/fe18e81e9449962ce5e34e7b421f9f016eb4eb84">@Dirkster99</a>
-Also Increased to Version 3.5.2.
+- [Feature Added: Auto resizing floating window to content](https://github.com/Dirkster99/AvalonDock/pull/146) [thanx to Erik Ovegård](https://github.com/eriove)
 
-### Increased to Version 3.5.1
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/8cb6565db294ed3fcb2ac502172f059d740f013d">@Dirkster99</a>
+- Feature Added: Virtualizing Tabbed Documents and/or LayoutAnchorables [PR #143](https://github.com/Dirkster99/AvalonDock/pull/143) + [Virtualization Options](https://github.com/Dirkster99/AvalonDock/commit/1a45dbbe66c931e6c87ad769a9b269da4cb290ae)  [thanx to matko238](https://github.com/matko238)  
+  - See ``DockingManager.IsVirtualizingAnchorable``, ``DockingManager.IsVirtualizingDocument``, and ``IsVirtualizing`` property on ``LayoutAnchorablePaneControl`` and ``LayoutDocumentPaneControl``.
 
-### Fixed Close Button Position in Generic Theme
-- <a href="https://github.com/xceedsoftware/wpftoolkit/pull/1184/files">#1184</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/11709c6cbfc190e920fc62302b5922d666dbac29">@Dirkster99</a>
+- [Fixed Issue #149 Flicker/Lag when restoring floating window from Maximized state](https://github.com/Dirkster99/AvalonDock/issues/149) [thanx to skyneps](https://github.com/skyneps)
 
-### DockingManager: ModelChange event happens before new LayoutDocumentItem is added
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1430">#1430</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/6d23da0ce95236ee77e53238cf60e679a3c8fb0e">@Dirkster99</a>
+- [Fixed Issue #150 Restoring floating window position on multiple monitors uses wrong Point for Virtual Screen location](https://github.com/Dirkster99/AvalonDock/issues/150) [thanx to charles-roberts](https://github.com/charles-roberts)
 
-### Added resource file for AvalonDock for nl-BE
-- [nl-BE](https://github.com/Dirkster99/AvalonDock/wiki/Localization)
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1424">#1424</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/70995417714f37d84659854245f0caad8e3c6d39">@Dirkster99</a>
+## Fixes and Features added in Version 4.0
 
-### Fixed Crash while loading FLOATING DOCUMENT
+- [Fix #98 with floating window without a content #99](https://github.com/Dirkster99/AvalonDock/pull/99) Thanx to [scdmitryvodich](https://github.com/scdmitryvodich)
 
-Fixed Crash while loading (Deserialize) a layout with FLOATING DOCUMENT window.
+- Changed coding style to using TABS as indentation
+- **Breaking Change** [Changed namespaces to AvalonDock (as authored originally in version 2.0 and earlier)](https://github.com/Dirkster99/AvalonDock/pull/102) See also [Issue #108](https://github.com/Dirkster99/AvalonDock/issues/108)
 
-NullReferenceException in LayoutDocumentFloatingWindowControl.OnInitialized:
-Initialization in 2nd constructor was missing:
-   _model = model;
-   UpdateThemeResources();
-   
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1442">Issue/Resolution is similar to #1442</a>, <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1448">#1448</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/f966d6ced92e658cd50e5505c38f869ebae00fba">@Dirkster99</a>
+- [Fix #101 and new fix for #81 with docked pane becomes not visible.](https://github.com/Dirkster99/AvalonDock/issues/101) Thanx to [scdmitryvodich](https://github.com/scdmitryvodich)
 
-### Removed unused private field in LayoutAutoHideWindowControl
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/c4b60646fc0e2beb166f682a1f0e9b8e0532ec8d">@Dirkster99</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/1304e0c4fad40f2d057858712c3c5be86bf46509">@Dirkster99</a>
+- [Feature added: allow documents to be docked in a floating window](https://github.com/Dirkster99/AvalonDock/pull/107) Thanx to [amolf-se](https://github.com/amolf-se) [https://github.com/mkonijnenburg](mkonijnenburg) @ [http://www.amolf.nl](http://www.amolf.nl)
 
-### Prevent crash from setting negative size
-- <a href="https://github.com/RecursiveNerd/wpftoolkit/commit/38d36f236727cf48ab0e82e9794e1f927d059695">RecursiveNerd/wpftoolkit</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/19a07008cfeb352bba8bf371305e6be83541806d">@Dirkster99</a>
+- [Feature added: AutoHideDelay property to control the time until an AutoHide window is reduced back to its anchored representation](https://github.com/Dirkster99/AvalonDock/pull/110) Thanx to [Alexei Stukov](https://github.com/Jiiks)
 
-### Fix for issue #1379 as suggested by RecursiveNerd
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1379">#1379</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/f8be3fa041904b2cb9e55299a4497b288b145d00">@Dirkster99</a>
+- [Fix #127 Controls cause memory leaks via event listener](https://github.com/Dirkster99/AvalonDock/issues/127)
 
-### Update zh-Hans translation #1383
-- <a href="https://github.com/xceedsoftware/wpftoolkit/pull/1383/files">#1383</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/f8167d3ab094f65454e702347d50ac5cd1427da2">@Dirkster99</a>
+- [Fix #111 AvalonDock.LayoutRoot doesn't know how to deserialize...](https://github.com/Dirkster99/AvalonDock/issues/111) Thanx to [scdmitryvodich](https://github.com/scdmitryvodich)
 
-### AvalonDock czech localization #1396
-- <a href="https://github.com/xceedsoftware/wpftoolkit/pull/1396/files">#1396</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/c67e8583b596d7deacd0bda79f2448a47b5fc6d7">@Dirkster99</a>
+- [Fix #117 Dragging LayoutAnchoreable into outer docking buttons of floating document result in Exception](https://github.com/Dirkster99/AvalonDock/issues/117) Thanx to [scdmitryvodich](https://github.com/scdmitryvodich)
 
-### AvalonDock fixed misspelling when serializing DockMinWidth/DockMinHeight
-- <a href="https://github.com/xceedsoftware/wpftoolkit/pull/1212">#1212</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/9230aad671817ef6e48e6b5dc59a98a583fe1bed">@Dirkster99</a>
+- [Fix #132 Drop FloatingDocumentWindow into DocumentPane is not consistent (when FloatingDocumentWindow contains LayoutAnchorable)](https://github.com/Dirkster99/AvalonDock/issues/132)
 
-### Clear Bindings #1360
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1360">#1360</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/33655c686faeded1f4bef8d22da8960a2a101b50">@Dirkster99</a>
-
-### Theming ContextMenuEx in Metro
-Re-styling this in AvalonDock since the menu on the drop-down button for more documents is otherwise black
-- <a href="http://avalondock.codeplex.com/workitem/15743">http://avalondock.codeplex.com/workitem/15743</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/fd2186e31e34fa2c62dee7d0bd356f86c8f4729a">@Dirkster99</a>
-
-### Drag and Drop on (scaled) 4K display
-Drag and Drop of Document or ToolWindow content does not always work on (scaled) 4K display
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1357">#1357</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/issues/6">#6</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/86edf83d4232638eb0f5827f4b554dca7990f914">@Dirkster99</a>
-
-### Crash Loading (Deserialized) Floating Tool Window Layout
-
-Fixed Crash while loading (Deserialize) a layout from FLOATING tool window.
-NullReferenceException in LayoutAnchorableFloatingWindowControl.OnInitialized
-
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1442">#1442</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/f966d6ced92e658cd50e5505c38f869ebae00fba">@Dirkster99</a>
-
-### LayoutRoot doesn't notify change for Children or ChildrenCount #1313
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1313">#1313</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/d65e9a9019867b1019810329727c154cc20b4c90">@Dirkster99</a>
-
-### Fixed height of titles of floating windows #1203
-- <a href="https://github.com/xceedsoftware/wpftoolkit/issues/1203">#1203</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/5c22b1ea18a7b5b25b6a9cb328a1b4210474cbea">@Dirkster99</a>
-
-### Initial AvalonDock Version 3.5
-- <a href="https://github.com/xceedsoftware/wpftoolkit/tree/73b2e988dea6ea2e64bb11e8783b6bde66219ee1">Taken from this commit</a>
-- <a href="https://github.com/Dirkster99/AvalonDock/commit/89823735ab60ab90a84c6cae7c594e9ee7fe858c">@Dirkster99</a>
-
-Please review the <a href="https://github.com/Dirkster99/AvalonDock/wiki/Patch-History">Patch History</a> page for more information on patches for previously released versions of AvalonDock.
+## More Patch History
+Please review the **Path History** for more more information on patches and feaures in <a href="https://github.com/Dirkster99/AvalonDock/wiki/Patch-History">previously released versions of AvalonDock</a>.
